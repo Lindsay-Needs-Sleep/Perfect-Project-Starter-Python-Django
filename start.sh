@@ -21,6 +21,7 @@ fi
 
 
 cd ./docker
-rm .env
-echo "PYTHON_CONTAINER_COMAND=$INIT_SCRIPT && python $DEBUGPY manage.py runserver 0.0.0.0:8080$DJANGO_OPTS" >> .env
+
+export PYTHON_CONTAINER_COMAND="$INIT_SCRIPT && python $DEBUGPY manage.py runserver 0.0.0.0:8080$DJANGO_OPTS"
+
 docker compose up

@@ -14,15 +14,12 @@ services:
             - "5432:5432"
 
     python:
+        user: ${CURRENT_HOST_USER}
         ports:
             # server debug port
             - "5678:5678"
             # tests debug port
             - "5679:5679"
-        volumes:
-          - type: volume
-            source: code-volume
-            target: /proj
 
 volumes:
     # Volume created in /setup-dev.sh

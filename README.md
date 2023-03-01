@@ -2,7 +2,7 @@
 
 ## Adopt for your project
 
-* Replace all `longprojectname` with `<longer-project-name>` (could collide with other projects), and all `shortprojectname` with `<name>`, and `pythoncodefolder` with the relative path to where your python code is
+* Replace all `longprojectname` with `<longer-project-name>` (could collide with other projects), and all `shortprojectname` with `<name>`, and `pythoncodefolder` with the relative path to where your python code is/will be (ensure the folder exists)
 * Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
     * `docker/docker-compose.*.yml` files
     * `start.sh` currently produces different django start commands based on environment variables
@@ -11,17 +11,19 @@
     * `.editorconfig`
 * Continue through the rest of the setup steps until you get to `bash ./start.sh`. Before running this we should initialize/create our django/python code.
     * Either copy existing code into your `pythoncodefolder` (renamed)
-    * Or, to interactively initialize your code in the container (with it's exact environment): `docker copmose run -it python /bin/bash` and then do your thing
+    * Or, to interactively initialize your code in the container (with it's exact environment): `docker compose run python /bin/bash` and then do your thing.  NOTE: windows users should run this from windows, not wsl (otherwise created files have permission issues).
         * django
         ```bash
         python -m pip install Django==4.1.7
-        django-admin startproject <shortprojectname> ./<pythoncodefolder>
-        # for postgresql
-        python -m pip install psycopg2==2.9.5
+        mkdir settings
+        django-admin startproject settings ./settings
         python -m pip freeze > requirements.txt
         # Add an app
-        python manage.py startapp myapp ./<pythoncodefolder>/myapp
+        mkdir apps
+        mkdir apps/myapp
+        python manage.py startapp myapp ./apps/myapp
         ```
+        Add `psycopg2==2.9.5` to generated requirements.txt (for postgresql)
 * Finish following the setup
 * Update Readme Title, and (probably) nuke this TODO section.
 
@@ -47,6 +49,7 @@ This option will automaitcally include all development dependencies, extension r
 #### VsCode local & Other IDEs
 
 * Install Python 3.11
+* To ensure docker runs with the correct user, `CURRENT_HOST_USER=$(id -u):$(id -g)` must be set, alternatively, you can hard-code the result to `docker/.env` (may have to create the file)
 * Install extensions:
     * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
     * (vscode only) WorkSpace Config Plus (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=swellaby.workspace-config-plus)]

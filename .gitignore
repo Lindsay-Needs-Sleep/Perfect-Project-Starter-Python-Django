@@ -12,3 +12,5 @@
 # .env is generated
 /docker/.env
 /docker/docker-compose.override.yml
+
+/temp/
