@@ -4,10 +4,11 @@
 
 * Replace all `longprojectname` with `<longer-project-name>` (could collide with other projects), and all `shortprojectname` with `<name>`, and `pythoncodefolder` with the relative path to where your python code is
 * Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
-    * `/docker/docker-compose.*.yml` files
-    * `/start.sh` currently produces different django start commands based on environment variables
+    * `docker/docker-compose.*.yml` files
+    * `start.sh` currently produces different django start commands based on environment variables
     * `.vscode/tasks.shared.json`
     * `.vscode/launch.shared.json`
+    * `.editorconfig`
 * Continue through the rest of the setup steps until you get to `bash ./start.sh`. Before running this we should initialize/create our django/python code.
     * Either copy existing code into your `pythoncodefolder` (renamed)
     * Or, to interactively initialize your code in the container (with it's exact environment): `docker copmose run -it python /bin/bash` and then do your thing
