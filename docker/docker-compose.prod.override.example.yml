@@ -1,0 +1,19 @@
+# automatically merged and used with 'docker compose up'
+
+version: '3.8'
+
+services:
+
+    postgres:
+        environment:
+            - POSTGRES_DB=<fill>
+            - POSTGRES_USER=<fill>
+            - POSTGRES_PASSWORD=<fill>
+
+volumes:
+    code-volume:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: ../pythoncodefolder

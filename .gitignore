@@ -1,0 +1,14 @@
+
+# VsCode Configs
+.vscode/settings.json
+.vscode/settings.local.json
+.vscode/tasks.json
+.vscode/tasks.local.json
+.vscode/launch.json
+.vscode/launch.local.json
+.devcontainer/user-installs.sh
+
+# Docker
+# .env is generated
+/docker/.env
+/docker/docker-compose.override.yml

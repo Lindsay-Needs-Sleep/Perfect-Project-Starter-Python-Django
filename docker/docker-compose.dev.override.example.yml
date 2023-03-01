@@ -1,0 +1,31 @@
+# automatically merged and used with 'docker compose up'
+
+version: '3.8'
+
+services:
+
+    postgres:
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        # Allow external port access to database for development
+        ports:
+            - "5432:5432"
+
+    python:
+        ports:
+            # server debug port
+            - "5678:5678"
+            # tests debug port
+            - "5679:5679"
+        volumes:
+          - type: volume
+            source: code-volume
+            target: /proj
+
+volumes:
+    # Volume created in /setup-dev.sh
+    code-volume:
+        external: true
+        name: shortprojectname-python-code

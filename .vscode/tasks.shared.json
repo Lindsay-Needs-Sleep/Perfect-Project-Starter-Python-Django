@@ -1,0 +1,31 @@
+{
+    "tasks": [
+      {
+        "label": "django-debug",
+        "type": "shell",
+        "command": "docker compose -f docker-compose.yml -f docker-compose.debug.yml up -it"
+      },
+      {
+          "label": "django-log",
+          "type": "shell",
+          "options": {
+              "cwd": "${workspaceFolder}",
+              "env": {
+                "START_SH_DEBUG": true,
+                "START_SH_DEBUG_WAIT": true
+              }
+          },
+        "command": "bash ./start.sh"
+      },
+      {
+        "label": "tests",
+        "type": "shell",
+        "command": "docker compose exec -it django bash -c './docker/django-init.sh && python manage.py test --keepdb'"
+      },
+      {
+        "label": "tests-debug",
+        "type": "shell",
+        "command": "docker compose exec -it django bash -c './docker/django-init.debug.sh && python /usr/local/debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb'"
+      }
+    ]
+  }

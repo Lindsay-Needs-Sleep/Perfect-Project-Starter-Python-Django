@@ -1,0 +1,27 @@
+{
+
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Ubuntu-20.04 (WSL)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu-20.04",
+        "--cd",
+        "/mnt/z/Linds/Projects/PathOfHistory/server/"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Ubuntu-20.04 (WSL)"
+}
