@@ -14,6 +14,9 @@ services:
             - "5432:5432"
 
     python:
+        build:
+            args:
+                - DEBUG=true
         ports:
             # server debug port
             - "5678:5678"

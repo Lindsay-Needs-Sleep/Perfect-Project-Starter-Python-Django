@@ -15,3 +15,9 @@ RUN adduser --uid ${USER_UID} --gid ${USER_GID} --disabled-password ${USERNAME}
 # Switch to our non-root user
 USER ${USERNAME}
 ENV PATH="$PATH:/home/${USERNAME}/.local/bin"
+
+COPY pythoncodefolder/requirements.txt .
+RUN pip install --user -r requirements.txt
+
+ARG DEBUG
+RUN [ -z "$DEBUG" ] || pip install debugpy==1.6.6

@@ -5,4 +5,4 @@ cp -n .devcontainer/user-installs.example.sh .devcontainer/user-installs.sh
 cp -n .vscode/settings.local.example.json .vscode/settings.local.json
 
 # docker setup
-bash ./docker/create-code-volume.sh
+. docker/create-code-volume.sh

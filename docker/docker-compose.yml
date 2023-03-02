@@ -19,8 +19,8 @@ services:
     python:
         image: shortprojectname.python:0.0
         build:
-            context: .
-            dockerfile: ./python.Dockerfile
+            context: ../
+            dockerfile: ./docker/python.Dockerfile
             args:
                 - USER_UID=${CURRENT_HOST_USER_UID}
                 - USER_GID=${CURRENT_HOST_USER_GID}

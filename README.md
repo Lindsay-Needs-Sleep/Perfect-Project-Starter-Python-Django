@@ -7,7 +7,8 @@ Replace all instances of the following the project:
 * `shortprojectname` with `<name>`
 * `pythoncodefolder` with the relative path to where your python code is/will be (relative to the project root)
     * Put your python code in this folder
-    * NOTE: If you don't have existing code yet, add at least 1 dummy file to this folder otherwise docker will mess up the permissions on this folder for some reason -.-)
+    * You must have at least an empty `requirements.txt` file
+        * NOTE: If you don't have any files in this folder docker will mess up the permissions on this folder for some reason -.-)
 
 Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
 * `docker/docker-compose.*.yml` files
@@ -15,25 +16,28 @@ Simplify/Update the following as required for your project (Currently set up for
 * `.vscode/tasks.shared.json`
 * `.vscode/launch.shared.json`
 * `.editorconfig`
+* `start.sh`
 
-Continue through the rest of the setup steps until you get to `bash ./start.sh`.
-Before running `start.sh` you should have code in your `pythoncodefolder` and you should modify `start.sh` to suit your needs.
-> To interactively initialize your code in the container with it's exact environment, `cd docker && docker compose run python /bin/bash` and then do your thing.
->
-> **django**
-> ```bash
-> python -m pip install Django==4.1.7
-> mkdir settings
-> django-admin startproject settings .
-> python -m pip freeze > requirements.txt
-> # Add an app
-> mkdir apps
-> mkdir apps/myapp
-> python manage.py startapp myapp ./apps/myapp
-> # Add "psycopg2==2.9.5" to generated requirements.txt (for postgresql)
-> ```
+If you need to interactively initialize your code in the container with it's exact environment...
+* Do steps #01 and #02 of [setup-and-run](#setup-and-run)
+* Run `. setup-dev.sh` (it will give an error that requirements.txt doesn't exist)
+* Run `cd docker && docker compose run python /bin/bash` and then do your thing.
+    * **django**
+        ```bash
+        python -m pip install Django==4.1.7
+        mkdir settings
+        django-admin startproject settings .
+        python -m pip freeze requirements.txt
+        # Add an app
+        mkdir apps
+        mkdir apps/myapp
+        python manage.py startapp myapp ./apps/myapp
+        # Add "psycopg2==2.9.5" to generated requirements.txt (for postgresql)
+        ```
 
-Run `bash ./start.sh` and finish following the setup
+* Run `. setup-dev.sh` again, should be no errors
+
+Run `. start.sh` to run the code
 
 Update the README Title, and (probably) nuke this "Adopt this for your project" section.
 
@@ -74,8 +78,8 @@ With this option you are in charge of installing and configuring all dependancie
 ### #03 - Setup and Run Project
 
 Run initial setup script (safe to rerun)
-* (dev) `bash ./setup-dev.sh`
-* (prod) `bash ./setup-prod.sh`
+* (dev) `. setup-dev.sh`
+* (prod) `. setup-prod.sh`
 
 Fill out the following files as appropriate
 * `/docker/docker-compose.override.yml`
@@ -85,7 +89,18 @@ Fill out the following files as appropriate
         * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
 * (dev) (vscode only) `.vscode/settings.local.json`
 
-Run `bash ./start.sh`
+Run `. start.sh`
 * (dev) Set environment variables as desired (for `start.sh`):
     * START_SH_DEBUG=true if you want to debug
     * START_SH_DEBUG_WAIT=true if want the program to wait until a debugger is attached
+
+### #04 - Additional Notes
+
+To get into a running container (eg. the python container)
+```bash
+docker compose exec -it python /bin/bash
+```
+If `requirements.txt` changes you should rebuild the image
+```bash
+docker compose build python
+```
