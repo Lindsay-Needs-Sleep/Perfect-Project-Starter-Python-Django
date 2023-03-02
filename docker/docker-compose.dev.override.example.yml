@@ -14,7 +14,6 @@ services:
             - "5432:5432"
 
     python:
-        user: ${CURRENT_HOST_USER}
         ports:
             # server debug port
             - "5678:5678"

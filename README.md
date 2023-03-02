@@ -2,21 +2,20 @@
 
 ## Adopt for your project
 
-* Replace all `longprojectname` with `<longer-project-name>` (could collide with other projects), and all `shortprojectname` with `<name>`, and `pythoncodefolder` with the relative path to where your python code is/will be (ensure the folder exists)
+* Replace all `longprojectname` with `<longer-project-name>` (could collide with other projects), and all `shortprojectname` with `<name>`, and `pythoncodefolder` with the relative path to where your python code is/will be (ensure the folder exists, and has at least 1 file in it or permissions get messed up for some reason -.-)
 * Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
     * `docker/docker-compose.*.yml` files
     * `start.sh` currently produces different django start commands based on environment variables
     * `.vscode/tasks.shared.json`
     * `.vscode/launch.shared.json`
     * `.editorconfig`
-* Continue through the rest of the setup steps until you get to `bash ./start.sh`. Before running this we should initialize/create our django/python code.
-    * Either copy existing code into your `pythoncodefolder` (renamed)
-    * Or, to interactively initialize your code in the container (with it's exact environment): `docker compose run python /bin/bash` and then do your thing.  NOTE: windows users should run this from windows, not wsl (otherwise created files have permission issues).
+* Continue through the rest of the setup steps until you get to `bash ./start.sh`. Before running `start.sh` you should move your existing python code into your `pythoncodefolder` (renamed)
+    * Or, to interactively initialize your code in the container with it's exact environment, `cd docker && docker compose run python /bin/bash` and then do your thing. (**NOTE:** `pythoncodefolder` must not be empty, have at least a dummy file in there or for some reason docker will change the permissions on the folder!)
         * django
         ```bash
         python -m pip install Django==4.1.7
         mkdir settings
-        django-admin startproject settings ./settings
+        django-admin startproject settings .
         python -m pip freeze > requirements.txt
         # Add an app
         mkdir apps
@@ -49,7 +48,9 @@ This option will automaitcally include all development dependencies, extension r
 #### VsCode local & Other IDEs
 
 * Install Python 3.11
-* To ensure docker runs with the correct user, `CURRENT_HOST_USER=$(id -u):$(id -g)` must be set, alternatively, you can hard-code the result to `docker/.env` (may have to create the file)
+* To ensure docker runs with the correct user you must have the following environment variables set or hard-coded to `docker/.env` (may have to create the file)
+    * `CURRENT_HOST_USER_UID=$(id -u)`
+    * `CURRENT_HOST_USER_GID=$(id -g)`
 * Install extensions:
     * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
     * (vscode only) WorkSpace Config Plus (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=swellaby.workspace-config-plus)]
