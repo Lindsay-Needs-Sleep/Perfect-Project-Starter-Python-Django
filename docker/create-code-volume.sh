@@ -18,4 +18,4 @@
 # Docker from Docker docs:
 # https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose#using-bind-mounts-when-working-with-docker-inside-the-container
 # https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/pythoncodefolder --opt type=none --opt o=bind shortprojectname-python-code
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/pythoncodefolder --opt type=none --opt o=bind longprojectname-python-code

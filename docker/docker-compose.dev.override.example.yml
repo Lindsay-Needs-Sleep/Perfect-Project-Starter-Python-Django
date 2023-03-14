@@ -27,4 +27,4 @@ volumes:
     # Volume created in /setup-dev.sh
     code-volume:
         external: true
-        name: shortprojectname-python-code
+        name: longprojectname-python-code
