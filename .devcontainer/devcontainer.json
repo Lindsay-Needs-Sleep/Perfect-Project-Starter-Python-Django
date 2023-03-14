@@ -21,7 +21,12 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"EditorConfig.EditorConfig"
+                "EditorConfig.EditorConfig",
+				"Swellaby.workspace-config-plus",
+				"ms-azuretools.vscode-docker",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.isort"
 			]
 		}
 	},
