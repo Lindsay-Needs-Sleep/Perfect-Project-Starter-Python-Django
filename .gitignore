@@ -9,8 +9,9 @@
 .devcontainer/user-installs.sh
 
 # Docker
-# .env is generated
+# .env and .env-dev are generated and developer specific
 /docker/.env
+/docker/.env-dev
 /docker/docker-compose.override.yml
 
 /temp/

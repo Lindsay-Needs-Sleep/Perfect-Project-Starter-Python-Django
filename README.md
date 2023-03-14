@@ -65,10 +65,6 @@ With this option you are in charge of installing and configuring all dependancie
 
 > Install Python 3.11
 >
-> To ensure docker runs with the correct user you must have the following environment variables set or hard-coded to `docker/.env` (may have to create the file)
-> * `CURRENT_HOST_USER_UID=$(id -u)`
-> * `CURRENT_HOST_USER_GID=$(id -g)`
->
 > Install extensions:
 > * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
 > * Docker (optional) [[vscode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)]
