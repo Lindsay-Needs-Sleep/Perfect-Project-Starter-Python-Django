@@ -5,7 +5,8 @@
 
 if [ "$START_SH_DEBUG" = true ]
 then
-    DJANGO_OPTS=" --nothreading --noreload"
+    DJANGO_OPTS=" --nothreading"
+    #  --noreload"
     DEBUGPY="-m debugpy --listen 0.0.0.0:5678"
 
     if [ "$START_SH_DEBUG_WAIT" = true ]
