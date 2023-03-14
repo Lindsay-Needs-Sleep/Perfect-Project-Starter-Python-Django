@@ -1,31 +1,76 @@
+
 {
+    "version": "2.0.0",
     "tasks": [
-      {
-        "label": "django-debug",
-        "type": "shell",
-        "command": "docker compose -f docker-compose.yml -f docker-compose.debug.yml up -it"
-      },
-      {
-          "label": "django-log",
-          "type": "shell",
-          "options": {
-              "cwd": "${workspaceFolder}",
-              "env": {
-                "START_SH_DEBUG": true,
-                "START_SH_DEBUG_WAIT": true
-              }
-          },
-        "command": "bash ./start.sh"
-      },
-      {
-        "label": "tests",
-        "type": "shell",
-        "command": "docker compose exec -it django bash -c './docker/django-init.sh && python manage.py test --keepdb'"
-      },
-      {
-        "label": "tests-debug",
-        "type": "shell",
-        "command": "docker compose exec -it django bash -c './docker/django-init.debug.sh && python /usr/local/debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb'"
-      }
+        {
+            "label": "python-log",
+            "type": "shell",
+            "command": "docker compose log python"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                "START_SH_DEBUG": "false",
+                "START_SH_DEBUG_WAIT": "false"
+                }
+            },
+            "command": "bash ./start.sh"
+        },
+        {
+            "label": "run-debug",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                "START_SH_DEBUG": "true",
+                "START_SH_DEBUG_WAIT": "false"
+                }
+            },
+            "command": "bash ./start.sh"
+        },
+        {
+            "label": "run-debug-wait",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "START_SH_DEBUG": "true",
+                    "START_SH_DEBUG_WAIT": "true"
+                }
+            },
+            "command": "bash ./start.sh",
+        },
+        {
+            // python container must be running (exec -it), or run (run) as new container?
+            "label": "tests",
+            "type": "shell",
+            "command": "docker compose run python bash -c 'python manage.py test --keepdb'"
+        },
+        {
+            "label": "tests-debug",
+            "type": "shell",
+            "command": "docker compose run python bash -c 'python /usr/local/debugpy --listen 0.0.0.0:5679 manage.py test --keepdb'"
+        },
+        {
+            "label": "tests-debug-wait",
+            "type": "shell",
+            "command": "docker compose run python bash -c 'python /usr/local/debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb'"
+        },
+        {
+            "label": "Terminate All Tasks",
+            "command": "echo ${input:terminate}",
+            "type": "shell",
+        },
+    ],
+    "inputs": [
+        {
+            "id": "terminate",
+            "type": "command",
+            "command": "workbench.action.tasks.terminate",
+            "args": "terminateAll"
+        }
     ]
-  }
+}

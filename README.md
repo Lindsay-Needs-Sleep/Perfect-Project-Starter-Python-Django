@@ -20,14 +20,14 @@ Simplify/Update the following as required for your project (Currently set up for
 
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
-* Run `. setup-dev.sh`
+* Run `. setup-dev.sh` (it will give an error that requirements.txt doesn't exist)
 * Run `cd docker && docker compose run python /bin/bash` and then do your thing.
     * **django**
         ```bash
         python -m pip install Django==4.1.7
         mkdir settings
         django-admin startproject settings .
-        python -m pip freeze > requirements.txt
+        python -m pip freeze requirements.txt
         # Add an app
         mkdir apps
         mkdir apps/myapp
@@ -35,7 +35,7 @@ If you need to interactively initialize your code in the container with it's exa
         # Add "psycopg2==2.9.5" to generated requirements.txt (for postgresql)
         ```
 
-* We need to delete the python docker image because we modified `requirements.txt` so that is recreated on next run. (If in dev container, you may be be able to run `dcrmci` to nuke all inactive containers and images.)
+* Run `. setup-dev.sh` again, should be no errors
 
 Run `. start.sh` to run the code
 
@@ -64,6 +64,10 @@ This option will automaitcally include all development dependencies, extension r
 With this option you are in charge of installing and configuring all dependancies/extensions correctly
 
 > Install Python 3.11
+>
+> To ensure docker runs with the correct user you must have the following environment variables set or hard-coded to `docker/.env` (may have to create the file)
+> * `CURRENT_HOST_USER_UID=$(id -u)`
+> * `CURRENT_HOST_USER_GID=$(id -g)`
 >
 > Install extensions:
 > * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
