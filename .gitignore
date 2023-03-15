@@ -15,3 +15,7 @@
 /docker/docker-compose.override.yml
 
 /temp/
+
+# Python
+__pycache__
+db.sqlite3
