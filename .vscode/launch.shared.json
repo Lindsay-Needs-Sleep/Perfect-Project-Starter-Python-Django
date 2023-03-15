@@ -23,8 +23,8 @@
             "justMyCode": false,
             "request": "attach",
             "connect": {
-            "host": "longprojectname-debug-container",
-            "port": 5678
+                "host": "longprojectname-debug-container",
+                "port": 5678
             },
             "postDebugTask": "Terminate All Tasks",
             "pathMappings": [

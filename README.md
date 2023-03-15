@@ -70,6 +70,9 @@ With this option you are in charge of installing and configuring all dependancie
 > * Docker (optional) [[vscode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)]
 > * VsCode only
 >   * WorkSpace Config Plus (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=swellaby.workspace-config-plus)]
+>
+> VsCode only:
+> * Create `.vscode/launch.local.json` from a copy of `.vscode/launch.shared.json`, delete all keys except `"host"` and change the value to `"localhost"`
 
 ### #03 - Setup and Run Project
 

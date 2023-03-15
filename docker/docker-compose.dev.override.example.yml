@@ -12,6 +12,10 @@ services:
         # Allow external port access to database for development
         ports:
             - "5432:5432"
+        networks:
+            longprojectname-network:
+                aliases:
+                    - longprojectname-debug-container
 
     python:
         build:
@@ -22,9 +26,19 @@ services:
             - "5678:5678"
             # tests debug port
             - "5679:5679"
+        networks:
+            longprojectname-network:
+                aliases:
+                    - longprojectname-debug-container
 
 volumes:
     # Volume created in /setup-dev.sh
     code-volume:
         external: true
         name: longprojectname-python-code
+
+networks:
+  longprojectname-network:
+    name: longprojectname-network
+    external: true
+
