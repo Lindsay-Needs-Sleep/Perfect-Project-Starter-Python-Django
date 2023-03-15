@@ -10,10 +10,10 @@ indent_style = space
 indent_size = 4
 
 # Ignore paths
-[/.devcontainer/docker-compose.yml]
-end_of_line = unset
-insert_final_newline = unset
-trim_trailing_whitespace = unset
+# [{/.devcontainer/docker-compose.yml,.devcontainer/devcontainer.json}]
+# end_of_line = unset
+# insert_final_newline = unset
+# trim_trailing_whitespace = unset
 
-indent_style = unset
-indent_size = unset
+# indent_style = unset
+# indent_size = unset
