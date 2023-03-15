@@ -7,7 +7,7 @@ if [ "$START_SH_DEBUG" = true ]
 then
     DJANGO_OPTS=" --nothreading"
     #  --noreload"
-    DEBUGPY="-m debugpy --listen 0.0.0.0:5678"
+    DEBUGPY=" -m debugpy --listen 0.0.0.0:5678"
 
     if [ "$START_SH_DEBUG_WAIT" = true ]
     then
@@ -18,8 +18,7 @@ else
     DEBUGPY=""
 fi
 
-cd ./docker
+export PYTHON_CONTAINER_COMAND="python"$DEBUGPY" manage.py runserver 0.0.0.0:8000"$DJANGO_OPTS
+echo $PYTHON_CONTAINER_COMAND
 
-export PYTHON_CONTAINER_COMAND="python "$DEBUGPY" manage.py runserver 0.0.0.0:8080"$DJANGO_OPTS
-
-docker compose up
+(cd ./docker && docker compose up)

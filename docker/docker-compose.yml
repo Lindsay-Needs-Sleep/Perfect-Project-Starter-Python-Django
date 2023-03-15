@@ -26,7 +26,9 @@ services:
                 - USER_GID=${CURRENT_HOST_USER_GID}
                 - USERNAME=py
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        command: bash -c "${PYTHON_CONTAINER_COMAND}"
+        # If we want multiple commands
+        # command: bash -c "${PYTHON_CONTAINER_COMAND}"
+        command: ${PYTHON_CONTAINER_COMAND}
         working_dir: /proj
         volumes:
           - type: volume

@@ -27,12 +27,13 @@ If you need to interactively initialize your code in the container with it's exa
         python -m pip install Django==4.1.7
         mkdir settings
         django-admin startproject settings .
-        python -m pip freeze requirements.txt
+        # Next line for postgresql
+        python -m pip install psycopg2==2.9.5
+        python -m pip freeze > requirements.txt
         # Add an app
         mkdir apps
         mkdir apps/myapp
         python manage.py startapp myapp ./apps/myapp
-        # Add "psycopg2==2.9.5" to generated requirements.txt (for postgresql)
         ```
 
 Run `./start.sh` to run the code
