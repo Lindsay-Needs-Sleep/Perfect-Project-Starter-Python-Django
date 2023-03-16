@@ -20,7 +20,7 @@ Simplify/Update the following as required for your project (Currently set up for
 
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
-* Run `. setup-dev.sh` (it will give an error that requirements.txt doesn't exist)
+* Run `./setup-dev.sh`
 * Run `cd docker && docker compose run python /bin/bash` and then do your thing.
     * **django**
         ```bash
@@ -35,9 +35,7 @@ If you need to interactively initialize your code in the container with it's exa
         # Add "psycopg2==2.9.5" to generated requirements.txt (for postgresql)
         ```
 
-* Run `. setup-dev.sh` again, should be no errors
-
-Run `. start.sh` to run the code
+Run `./start.sh` to run the code
 
 Update the README Title, and (probably) nuke this "Adopt this for your project" section.
 
@@ -77,8 +75,8 @@ With this option you are in charge of installing and configuring all dependancie
 ### #03 - Setup and Run Project
 
 Run initial setup script (safe to rerun)
-* (dev) `. setup-dev.sh`
-* (prod) `. setup-prod.sh`
+* (dev) `./setup-dev.sh`
+* (prod) `./setup-prod.sh`
 
 Fill out the following files as appropriate
 * `/docker/docker-compose.override.yml`
@@ -88,7 +86,7 @@ Fill out the following files as appropriate
         * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
 * (dev) (vscode only) `.vscode/settings.local.json`
 
-Run `. start.sh`
+Run `./start.sh`
 * (dev) Set environment variables as desired (for `start.sh`):
     * START_SH_DEBUG=true if you want to debug
     * START_SH_DEBUG_WAIT=true if want the program to wait until a debugger is attached
