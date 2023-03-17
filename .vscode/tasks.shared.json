@@ -47,12 +47,12 @@
         {
             "label": "tests-debug",
             "type": "shell",
-            "command": "./exec.sh python -m debugpy --listen 0.0.0.0:5679 manage.py test --keepdb"
+            "command": "./exec.sh python /usr/local/python/debugpy --listen 0.0.0.0:5679 manage.py test --keepdb"
         },
         {
             "label": "tests-debug-wait",
             "type": "shell",
-            "command": "./exec.sh python -m debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb"
+            "command": "./exec.sh python /usr/local/python/debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb"
         },
         {
             "label": "Terminate All Tasks",

@@ -3,6 +3,10 @@ FROM python:3.11.2
 # User root user to create a non-root user so we can install pip packages without root
 USER root
 
+# Install as root to a global location so it doesn't get saved to requirements.txt with pip freeze
+ARG DEBUG
+RUN [ -z "$DEBUG" ] || pip install --target=/usr/local/python debugpy==1.6.6
+
 ARG USER_UID
 ARG USER_GID
 ARG USERNAME
@@ -18,6 +22,3 @@ ENV PATH="$PATH:/home/${USERNAME}/.local/bin"
 
 COPY pythoncodefolder/requirements.txt .
 RUN pip install --user -r requirements.txt
-
-ARG DEBUG
-RUN [ -z "$DEBUG" ] || pip install debugpy==1.6.6
