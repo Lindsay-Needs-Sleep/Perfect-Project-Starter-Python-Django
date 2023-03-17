@@ -1,8 +1,3 @@
-import os
-# from unipath import Path
-
-# os.sys.path.insert(0, Path().child('apps'))
-os.sys.path.insert(0, os.path.join(os.getcwd(), 'apps'))
 
 PROJECT_APPS = (
     'myapp',

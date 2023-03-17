@@ -21,22 +21,26 @@ Simplify/Update the following as required for your project (Currently set up for
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
 * Run `./setup-dev.sh`
-* Run `cd docker && docker compose run python /bin/bash` and then do your thing.
+* Run `(cd docker && docker compose run python /bin/bash)` and then do your thing.
     * **django**
         ```bash
         python -m pip install Django==4.1.7
-        mkdir settings
-        django-admin startproject settings .
+        django-admin startproject zzz_config_zzz .
         # Next line for postgresql
         python -m pip install psycopg2==2.9.5
         python -m pip freeze > requirements.txt
         # Add an app
-        mkdir apps
-        mkdir apps/myapp
-        python manage.py startapp myapp ./apps/myapp
+        python manage.py startapp myapp
         ```
 
-Run `./start.sh` to run the code
+Run `./start.sh` to run the container
+
+If it's the first project set up:
+* After setting your models: `./exec.sh python manage.py makemigrations myapp`
+* Create admin panel super user `./exec.sh python manage.py createsuperuser`
+
+Prepare database: `./exec.sh python manage.py migrate`
+
 
 Update the README Title, and (probably) nuke this "Adopt this for your project" section.
 
