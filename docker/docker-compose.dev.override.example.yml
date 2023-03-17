@@ -14,8 +14,6 @@ services:
             - "5432:5432"
         networks:
             longprojectname-network:
-                aliases:
-                    - longprojectname-debug-container
 
     python:
         build:

@@ -12,8 +12,8 @@
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}",
-                    "remoteRoot": "."
+                    "localRoot": "${workspaceFolder}/pythoncodefolder",
+                    "remoteRoot": "/proj"
                 }
             ]
         },

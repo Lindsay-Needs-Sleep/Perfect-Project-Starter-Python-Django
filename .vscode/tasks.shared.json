@@ -3,11 +3,6 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "python-log",
-            "type": "shell",
-            "command": "docker compose log python"
-        },
-        {
             "label": "run",
             "type": "shell",
             "options": {
@@ -47,17 +42,17 @@
             // python container must be running (exec -it), or run (run) as new container?
             "label": "tests",
             "type": "shell",
-            "command": "docker compose run python bash -c 'python manage.py test --keepdb'"
+            "command": "./exec.sh python manage.py test --keepdb"
         },
         {
             "label": "tests-debug",
             "type": "shell",
-            "command": "docker compose run python bash -c 'python /usr/local/debugpy --listen 0.0.0.0:5679 manage.py test --keepdb'"
+            "command": "./exec.sh python -m debugpy --listen 0.0.0.0:5679 manage.py test --keepdb"
         },
         {
             "label": "tests-debug-wait",
             "type": "shell",
-            "command": "docker compose run python bash -c 'python /usr/local/debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb'"
+            "command": "./exec.sh python -m debugpy --wait-for-client --listen 0.0.0.0:5679 manage.py test --keepdb"
         },
         {
             "label": "Terminate All Tasks",

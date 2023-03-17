@@ -18,8 +18,6 @@ services:
 
     networks:
         longprojectname-network:
-            aliases:
-                - longprojectname-debug-container
 
     # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
     # cap_add:
