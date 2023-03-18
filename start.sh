@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Set START_SH_DEBUG and START_SH_DEBUG_WAIT environment variables to true as required for development
 
 # START_SH_DEBUG=true

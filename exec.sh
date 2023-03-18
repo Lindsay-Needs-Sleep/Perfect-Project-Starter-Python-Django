@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # [-c <container default=python] [<command to run>]
 # If no command specificied, opens an interactive bash shell inside the running container
 
@@ -16,6 +18,8 @@ done
 
 # All of the options
 COMMAND=$@
+# From Alex, might help
+# COMMAND=$(printf '%q' "$@")
 
 # If an alternate container was passed
 if [ "$1" = "-c" ]

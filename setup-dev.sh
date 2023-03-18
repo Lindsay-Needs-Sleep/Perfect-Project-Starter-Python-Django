@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # Create uncommitted files from examples (if they don't already exist)
 cp -n ./docker/docker-compose.dev.override.example.yml ./docker/docker-compose.override.yml
