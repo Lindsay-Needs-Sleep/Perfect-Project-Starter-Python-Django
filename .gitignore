@@ -19,3 +19,6 @@
 # Python
 __pycache__
 db.sqlite3
+
+# django
+pythoncodefolder/zzz_config_zzz/settings_local.py
