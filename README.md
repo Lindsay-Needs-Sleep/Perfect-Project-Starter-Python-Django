@@ -79,6 +79,11 @@ With this option you are in charge of installing and configuring all dependancie
 
 ### #03 - Setup and Run Project
 
+```bash
+# Register commit hooks
+git config core.hooksPath git_hooks
+```
+
 Run initial setup script (safe to rerun)
 * (dev) `./setup-dev.sh`
 * (prod) `./setup-prod.sh`
@@ -91,16 +96,16 @@ Fill out the following files as appropriate
         * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
 * (dev) (vscode only) `.vscode/settings.local.json`
 
-Run `./start.sh`
+Run `./start.sh` (Or use the pre-defined VsCode tasks)
 * (dev) Set environment variables as desired (for `start.sh`):
     * START_SH_DEBUG=true if you want to debug
     * START_SH_DEBUG_WAIT=true if want the program to wait until a debugger is attached
 
 ### #04 - Additional Notes
 
-To get into a running container (eg. the python container)
+To get into a running container (defaults to creating a bash session if no command)
 ```bash
-docker compose exec -it python /bin/bash
+./exec.sh [-c <container default=python] [<command to run>]
 ```
 If `requirements.txt` changes you should rebuild the image
 ```bash

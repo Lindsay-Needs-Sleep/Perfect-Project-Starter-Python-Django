@@ -7,6 +7,7 @@ USER root
 ARG DEV_BUILD
 RUN [ -z "$DEV_BUILD" ] || pip install --target=/usr/local/python debugpy==1.6.6
 RUN [ -z "$DEV_BUILD" ] || pip install --target=/usr/local/python pycodestyle==2.10.0
+RUN [ -z "$DEV_BUILD" ] || pip install --target=/usr/local/python autopep8==2.0.2
 
 ARG USER_UID
 ARG USER_GID

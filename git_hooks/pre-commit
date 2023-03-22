@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Just set the command to anyting to prevent the warning
+export PYTHON_CONTAINER_COMAND='echo "running style checks"'
+
+# Run the python style check in the docker container
+(cd docker && docker compose exec -it python bash -c "python -W ignore::DeprecationWarning /usr/local/python/autopep8.py . && python /usr/local/python/pycodestyle.py")
