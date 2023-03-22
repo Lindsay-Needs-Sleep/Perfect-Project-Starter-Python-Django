@@ -4,8 +4,9 @@ FROM python:3.11.2
 USER root
 
 # Install as root to a global location so it doesn't get saved to requirements.txt with pip freeze
-ARG DEBUG
-RUN [ -z "$DEBUG" ] || pip install --target=/usr/local/python debugpy==1.6.6
+ARG DEV_BUILD
+RUN [ -z "$DEV_BUILD" ] || pip install --target=/usr/local/python debugpy==1.6.6
+RUN [ -z "$DEV_BUILD" ] || pip install --target=/usr/local/python pycodestyle==2.10.0
 
 ARG USER_UID
 ARG USER_GID
