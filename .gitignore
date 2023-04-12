@@ -21,4 +21,4 @@ __pycache__
 db.sqlite3
 
 # django
-pythoncodefolder/zzz_config_zzz/settings_local.py
+back_src/zzz_config_zzz/settings_local.py

@@ -11,9 +11,15 @@ services:
             - POSTGRES_PASSWORD=<fill>
 
 volumes:
-    code-volume:
+    back-src-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../pythoncodefolder
+            device: ../back_src
+    front-src-volume:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: ../front_src

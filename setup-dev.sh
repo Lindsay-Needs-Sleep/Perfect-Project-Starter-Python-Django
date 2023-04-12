@@ -5,7 +5,7 @@ cp -n ./docker/docker-compose.dev.override.example.yml ./docker/docker-compose.o
 cp -n .devcontainer/user-installs.example.sh .devcontainer/user-installs.sh
 cp -n .vscode/settings.local.example.json .vscode/settings.local.json
 # django
-cp -n pythoncodefolder/settings_local.example.py pythoncodefolder/settings_local.py
+cp -n back_src/zzz_config_zzz/settings_local.example.py back_src/zzz_config_zzz/settings_local.py
 
 
 # Required to make sure docker runs with the right user

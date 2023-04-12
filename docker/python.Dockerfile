@@ -22,5 +22,5 @@ RUN adduser --uid ${USER_UID} --gid ${USER_GID} --disabled-password ${USERNAME}
 USER ${USERNAME}
 ENV PATH="$PATH:/home/${USERNAME}/.local/bin"
 
-COPY pythoncodefolder/requirements.txt .
+COPY back_src/requirements.txt .
 RUN pip install --user -r requirements.txt

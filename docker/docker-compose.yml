@@ -29,11 +29,11 @@ services:
         # If we want multiple commands
         # command: bash -c "${PYTHON_CONTAINER_COMAND}"
         command: ${PYTHON_CONTAINER_COMAND}
-        working_dir: /proj
+        working_dir: /back_src
         volumes:
           - type: volume
-            source: code-volume
-            target: /proj
+            source: back-src-volume
+            target: /back_src
         ports:
           - "8080:8000"
         depends_on:

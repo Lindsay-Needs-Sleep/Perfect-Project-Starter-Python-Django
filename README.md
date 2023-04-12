@@ -5,7 +5,7 @@
 Replace all instances of the following the project:
 * `longprojectname` with `<longer-project-name>` (could collide with other projects)
 * `shortprojectname` with `<name>`
-* `pythoncodefolder` with the relative path to where your python code is/will be (relative to the project root)
+* `back_src` with the relative path to where your python code is/will be (relative to the project root)
     * Put your python code in this folder
     * You must have at least an empty `requirements.txt` file
         * NOTE: If you don't have any files in this folder docker will mess up the permissions on this folder for some reason -.-)
@@ -90,6 +90,9 @@ Run initial setup script (safe to rerun)
 
 Fill out the following files as appropriate
 * `/docker/docker-compose.override.yml`
+* `/back_src/zz_config_zzz/settings_local.py`
+    * Set `DEBUG=True`
+    * Other settings as desired
 * (dev) (vscode only) `.devcontainer/user-installs.sh`
     * Note: You should refresh the dev container **now** and any time you update `.devcontainer/user-installs.sh`
         * `ctrl + shift + P` > `Dev Containers: Rebuild Container` for a completely fresh re-application

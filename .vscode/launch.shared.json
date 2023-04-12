@@ -12,7 +12,7 @@
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/pythoncodefolder",
+                    "localRoot": "${workspaceFolder}/back_src/,
                     "remoteRoot": "/proj"
                 }
             ]
@@ -29,7 +29,7 @@
             "postDebugTask": "Terminate All Tasks",
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/pythoncodefolder",
+                    "localRoot": "${workspaceFolder}/back_src/,
                     "remoteRoot": "/proj"
                 }
             ]

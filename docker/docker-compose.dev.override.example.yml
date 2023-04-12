@@ -30,10 +30,10 @@ services:
                     - longprojectname-debug-container
 
 volumes:
-    # Volume created in /setup-dev.sh
-    code-volume:
+    # Volumes created in /setup-dev.sh
+    back-src-volume:
         external: true
-        name: longprojectname-python-code
+        name: longprojectname-back-src
 
 networks:
   longprojectname-network:
