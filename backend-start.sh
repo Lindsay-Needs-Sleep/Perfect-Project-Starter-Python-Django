@@ -23,4 +23,4 @@ fi
 export PYTHON_CONTAINER_COMAND="python"$DEBUGPY" manage.py runserver 0.0.0.0:8000"$DJANGO_OPTS
 echo $PYTHON_CONTAINER_COMAND
 
-(cd ./docker && docker compose up)
+(cd ./docker && docker compose up python)

@@ -20,6 +20,7 @@ RUN adduser --uid ${USER_UID} --gid ${USER_GID} --disabled-password ${USERNAME}
 
 # Switch to our non-root user
 USER ${USERNAME}
+# This is where root python packages are installed
 ENV PATH="$PATH:/home/${USERNAME}/.local/bin"
 
 COPY back_src/requirements.txt .

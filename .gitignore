@@ -14,7 +14,8 @@
 /docker/.env-dev
 /docker/docker-compose.override.yml
 
-/temp/
+# Node
+node_modules
 
 # Python
 __pycache__
@@ -22,3 +23,6 @@ db.sqlite3
 
 # django
 back_src/zzz_config_zzz/settings_local.py
+
+# Generated
+/front_src/public/bundles

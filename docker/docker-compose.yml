@@ -34,10 +34,22 @@ services:
           - type: volume
             source: back-src-volume
             target: /back_src
+          - type: volume
+            source: front-src-volume
+            target: /front_src
         ports:
           - "8080:8000"
         depends_on:
           - postgres
+
+    front:
+        image: node:19.9.0
+        user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
+        working_dir: /front_src/components
+        volumes:
+          - type: volume
+            source: front-src-volume
+            target: /front_src
 
 volumes:
     postgres-data:

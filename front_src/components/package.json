@@ -1,0 +1,14 @@
+{
+  "name": "components",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --port 8347 --host",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "lit": "^2.6.1"
+  },
+  "devDependencies": {
+    "vite": "^4.2.0"
+  }
+}

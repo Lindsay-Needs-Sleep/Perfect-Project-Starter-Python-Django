@@ -29,11 +29,20 @@ services:
                 aliases:
                     - longprojectname-debug-container
 
+    front:
+        command: ${FRONT_CONTAINER_COMAND}
+        ports:
+            # component development port
+            - "8347:8347"
+
 volumes:
     # Volumes created in /setup-dev.sh
     back-src-volume:
         external: true
         name: longprojectname-back-src
+    front-src-volume:
+        external: true
+        name: longprojectname-front-src
 
 networks:
   longprojectname-network:

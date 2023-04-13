@@ -12,11 +12,11 @@ Replace all instances of the following the project:
 
 Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
 * `docker/docker-compose.*.yml` files
-* `start.sh` currently produces different django start commands based on environment variables
+* `backend-start.sh` currently produces different django start commands based on environment variables
 * `.vscode/tasks.shared.json`
 * `.vscode/launch.shared.json`
 * `.editorconfig`
-* `start.sh`
+* `backend-start.sh`
 
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
@@ -33,7 +33,7 @@ If you need to interactively initialize your code in the container with it's exa
         python manage.py startapp myapp
         ```
 
-Run `./start.sh` to run the container
+Run `./backend-start.sh` to run the container
 
 If it's the first project set up:
 * After setting your models: `./exec.sh python manage.py makemigrations myapp`
@@ -99,8 +99,8 @@ Fill out the following files as appropriate
         * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
 * (dev) (vscode only) `.vscode/settings.local.json`
 
-Run `./start.sh` (Or use the pre-defined VsCode tasks)
-* (dev) Set environment variables as desired (for `start.sh`):
+Run `./backend-start.sh` (Or use the pre-defined VsCode tasks)
+* (dev) Set environment variables as desired (for `backend-start.sh`):
     * START_SH_DEBUG=true if you want to debug
     * START_SH_DEBUG_WAIT=true if want the program to wait until a debugger is attached
 
