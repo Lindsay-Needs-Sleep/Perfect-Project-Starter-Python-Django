@@ -1,17 +1,17 @@
 #!/bin/bash
-# usage: ./frontend-start.sh [command]
+# usage: ./frontend-start.sh <mode>
+# mode: default - dev server
+#       i - interactive
 
-# If any argument is passed
-if [ ! -z "$1" ]
-then
-    # eg. ./frontend-start.sh sleep infinity
-    # Followed by ./exec.sh -c front bash
-    COMMAND=$@
-    else
-    COMMAND="npm run dev"
-fi
+EXEC="docker compose exec -it front"
 
-export FRONT_CONTAINER_COMAND='bash -c "npm install && '$COMMAND'"'
-echo $FRONT_CONTAINER_COMAND
+case $1 in
+    i) COMMAND=(bash);;
+    *) COMMAND=(npm run dev);;
+esac
 
-(cd ./docker && docker compose up front)
+# Ensure the developement containers are running (python and front are just sleeping)
+(cd ./docker && docker compose up front --no-recreate --detach)
+
+echo $EXEC "${COMMAND[@]}"
+(cd ./docker && $EXEC "${COMMAND[@]}")

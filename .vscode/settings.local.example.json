@@ -1,5 +1,8 @@
 {
-
+  // Enable workspace keybindings https://stackoverflow.com/a/69610616/5820158
+  // with launch configs https://github.com/microsoft/vscode/issues/97921#issuecomment-629746570
+  // can copy the launch config settings from the launch.shared.json file
+  "workspaceKeybindings.myPOHLaunch.enabled": true,
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "PowerShell",

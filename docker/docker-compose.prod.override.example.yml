@@ -5,6 +5,7 @@ version: '3.8'
 services:
 
     postgres:
+        command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
         environment:
             - POSTGRES_DB=<fill>
             - POSTGRES_USER=<fill>

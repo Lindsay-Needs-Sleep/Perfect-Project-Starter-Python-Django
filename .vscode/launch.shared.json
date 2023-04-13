@@ -12,8 +12,8 @@
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/back_src/,
-                    "remoteRoot": "/proj"
+                    "localRoot": "${workspaceFolder}/back_src/",
+                    "remoteRoot": "/back_src"
                 }
             ]
         },
@@ -26,21 +26,12 @@
                 "host": "longprojectname-debug-container",
                 "port": 5678
             },
-            "postDebugTask": "Terminate All Tasks",
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/back_src/,
-                    "remoteRoot": "/proj"
+                    "localRoot": "${workspaceFolder}/back_src/",
+                    "remoteRoot": "/back_src"
                 }
             ]
-        },
-        {
-            "name": "Server",
-            "type": "python",
-            "request": "launch",
-            "port": 5678,
-            "cwd": "${workspaceRoot}",
-            "program": "manage.py runserver 0.0.0.0:8080 --nothreading"
         }
     ]
 }

@@ -19,6 +19,7 @@ services:
         build:
             args:
                 - DEV_BUILD=true
+        command: bash -c "python manage.py migrate && sleep infinity"
         ports:
             # server debug port
             - "5678:5678"
@@ -30,7 +31,7 @@ services:
                     - longprojectname-debug-container
 
     front:
-        command: ${FRONT_CONTAINER_COMAND}
+        command: bash -c "npm install && sleep infinity"
         ports:
             # component development port
             - "8347:8347"

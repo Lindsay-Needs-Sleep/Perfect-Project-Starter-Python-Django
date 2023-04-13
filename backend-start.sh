@@ -1,26 +1,41 @@
 #!/bin/bash
 
-# Set START_SH_DEBUG and START_SH_DEBUG_WAIT environment variables to true as required for development
+# usage: ./backend-start.sh <mode>
+# mode: default - run server (debugging enabled)
+#       w - run server and wait debugger to attach
+#       p - run production server
+#       t - test (debugging enabled)
+#       tw - test and wait debugger to attach
+#       m - migrate
+#       mm - make migrations
+#       s - style check
+#       st - style check and test
+#       i - interactive
 
-# START_SH_DEBUG=true
-# START_SH_DEBUG_WAIT=true
+EXEC="docker compose exec -it python"
 
-if [ "$START_SH_DEBUG" = true ]
-then
-    DJANGO_OPTS=" --nothreading"
-    #  --noreload"
-    DEBUGPY=" /usr/local/python/debugpy --listen 0.0.0.0:5678"
+case $1 in
+    i) COMMAND=(bash);;
+    s) COMMAND=(bash -c "
+        python -W ignore::DeprecationWarning /usr/local/python/autopep8.py . &&
+        python /usr/local/python/pycodestyle.py
+        ");;
+    st) COMMAND=(bash -c "
+        python -W ignore::DeprecationWarning /usr/local/python/autopep8.py . &&
+        python /usr/local/python/pycodestyle.py &&
+        python manage.py test --keepdb
+        ");;
+    m) COMMAND=(python manage.py migrate);;
+    mm) COMMAND=(python manage.py makemigrations);;
+    t) COMMAND=(python /usr/local/python/debugpy --listen 0.0.0.0:5679 manage.py test --keepdb);;
+    tw) COMMAND=(python /usr/local/python/debugpy --listen 0.0.0.0:5679 --wait-for-client manage.py test --keepdb);;
+    p) COMMAND=(python manage.py runserver 0.0.0.0:8000);;
+    w) COMMAND=(python /usr/local/python/debugpy --listen 0.0.0.0:5678 --wait-for-client manage.py runserver 0.0.0.0:8000 --nothreading);;
+    *) COMMAND=(python /usr/local/python/debugpy --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000 --nothreading);;
+esac
 
-    if [ "$START_SH_DEBUG_WAIT" = true ]
-    then
-        DEBUGPY=$DEBUGPY" --wait-for-client"
-    fi
-else
-    DJANGO_OPTS=""
-    DEBUGPY=""
-fi
+# Ensure the developement containers are running (python and front are just sleeping)
+(cd ./docker && docker compose up python --no-recreate --detach)
 
-export PYTHON_CONTAINER_COMAND="python"$DEBUGPY" manage.py runserver 0.0.0.0:8000"$DJANGO_OPTS
-echo $PYTHON_CONTAINER_COMAND
-
-(cd ./docker && docker compose up python)
+echo $EXEC "${COMMAND[@]}"
+(cd ./docker && $EXEC "${COMMAND[@]}")

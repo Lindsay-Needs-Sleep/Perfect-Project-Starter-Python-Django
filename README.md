@@ -13,15 +13,15 @@ Replace all instances of the following the project:
 Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
 * `docker/docker-compose.*.yml` files
 * `backend-start.sh` currently produces different django start commands based on environment variables
-* `.vscode/tasks.shared.json`
 * `.vscode/launch.shared.json`
 * `.editorconfig`
 * `backend-start.sh`
+* `frontend-start.sh`
 
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
 * Run `./setup-dev.sh`
-* Run `(cd docker && docker compose run python /bin/bash)` and then do your thing.
+* If you're starting a new project, run `./backend-start.sh i`
     * **django**
         ```bash
         python -m pip install Django==4.1.7
@@ -31,16 +31,11 @@ If you need to interactively initialize your code in the container with it's exa
         python -m pip freeze > requirements.txt
         # Add an app
         python manage.py startapp myapp
+        python manage.py makemigrations myapp
+        python manage.py migrate
+        # Create admin panel super user
+        python manage.py createsuperuser
         ```
-
-Run `./backend-start.sh` to run the container
-
-If it's the first project set up:
-* After setting your models: `./exec.sh python manage.py makemigrations myapp`
-* Create admin panel super user `./exec.sh python manage.py createsuperuser`
-
-Prepare database: `./exec.sh python manage.py migrate`
-
 
 Update the README Title, and (probably) nuke this "Adopt this for your project" section.
 
@@ -61,6 +56,7 @@ This option will automaitcally include all development dependencies, extension r
 
 > Install the [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)(v0.266.1)
 > * It should ask if you want to "Reopen in Container", say yes. (Otherwise, click on the bottom left corner (green square), `Reopen in Container (Dev Container)`)
+> * Sadly [WorkSpace Config Plus](https://marketplace.visualstudio.com/items?itemName=swellaby.workspace-config-plus) [doesn't work in devconatiners](https://github.com/swellaby/vscode-workspace-config-plus/issues/121), so you will either have to manually create `lauch.json` and `settings.json`, or outside of the devcontainer, open the folder and install the plugin.
 
 **VsCode local & Other IDEs**
 
@@ -75,7 +71,7 @@ With this option you are in charge of installing and configuring all dependancie
 >   * WorkSpace Config Plus (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=swellaby.workspace-config-plus)]
 >
 > VsCode only:
-> * Create `.vscode/launch.local.json` from a copy of `.vscode/launch.shared.json`, delete all keys except `"host"` and change the value to `"localhost"`
+> * Create `.vscode/launch.local.json` from a copy of `.vscode/launch.shared.json`, delete all keys except `"name"` and `"host"` and set the `"host"` value to `"localhost"`. (This should result in `"host": "localhost"` in launch.json )
 
 ### #03 - Setup and Run Project
 
@@ -99,17 +95,16 @@ Fill out the following files as appropriate
         * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
 * (dev) (vscode only) `.vscode/settings.local.json`
 
-Run `./backend-start.sh` (Or use the pre-defined VsCode tasks)
-* (dev) Set environment variables as desired (for `backend-start.sh`):
-    * START_SH_DEBUG=true if you want to debug
-    * START_SH_DEBUG_WAIT=true if want the program to wait until a debugger is attached
+Front end developement:
+* Run `./frontend-start.sh` (see file for options)
+* visit http://localhost:8347/ to develop components
+
+Back-end and integrated front-end development:
+* Run `./backend-start.sh` (see file for options)
+* visit http://localhost:8080/
 
 ### #04 - Additional Notes
 
-To get into a running container (defaults to creating a bash session if no command)
-```bash
-./exec.sh [-c <container default=python] [<command to run>]
-```
 If `requirements.txt` changes you should rebuild the image
 ```bash
 docker compose build python
