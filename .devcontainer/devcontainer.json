@@ -33,6 +33,9 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
+    // run on the host machine before the container is created
+    "initializeCommand": "docker network create longprojectname-network || true",
+
 	// Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "sudo bash .devcontainer/user-installs.sh"
 
