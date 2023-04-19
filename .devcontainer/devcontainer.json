@@ -34,7 +34,7 @@
 	// "forwardPorts": [],
 
     // run on the host machine before the container is created
-    "initializeCommand": "docker network create longprojectname-network || true",
+    "initializeCommand": "docker network inspect longprojectname-network || docker network create longprojectname-network",
 
 	// Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "sudo bash .devcontainer/user-installs.sh"
