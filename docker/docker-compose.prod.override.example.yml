@@ -11,7 +11,7 @@ services:
             - POSTGRES_USER=<fill>
             - POSTGRES_PASSWORD=<fill>
 
-    front:
+    front-components:
         command: bash -c "npm install && npm run build"
 
 volumes:
@@ -21,9 +21,15 @@ volumes:
             type: none
             o: bind
             device: ../back_src
-    front-src-volume:
+    front-components-src-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../front_src
+            device: ../front_components
+    public-src-volume:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: ../public

@@ -4,7 +4,7 @@
 #       p - production build
 #       i - interactive
 
-EXEC="docker compose exec -it front"
+EXEC="docker compose exec -it front-components"
 
 case $1 in
     i) COMMAND=(bash);;
@@ -12,14 +12,14 @@ case $1 in
         npm install --omit=dev &&
         npm run build
         ");;
-    *) COMMAND=(bash -c"
+    *) COMMAND=(bash -c "
         npm install &&
         npm run dev
         ");;
 esac
 
 # Ensure the developement containers are running (python and front are just sleeping)
-(cd ./docker && docker compose up front --no-recreate --detach)
+(cd ./docker && docker compose up front-components --no-recreate --detach)
 
 echo $EXEC "${COMMAND[@]}"
 (cd ./docker && $EXEC "${COMMAND[@]}")

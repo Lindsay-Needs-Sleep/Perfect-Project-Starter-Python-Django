@@ -25,4 +25,4 @@ db.sqlite3
 back_src/zzz_config_zzz/settings_local.py
 
 # Generated
-/front_src/public/bundles
+/public/bundles

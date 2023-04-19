@@ -30,7 +30,7 @@ services:
                 aliases:
                     - longprojectname-debug-container
 
-    front:
+    front-components:
         command: bash -c "npm install && sleep infinity"
         ports:
             # component development port
@@ -41,9 +41,12 @@ volumes:
     back-src-volume:
         external: true
         name: longprojectname-back-src
-    front-src-volume:
+    front-components-src-volume:
         external: true
-        name: longprojectname-front-src
+        name: longprojectname-front-components-src
+    public-src-volume:
+        external: true
+        name: longprojectname-public-src
 
 networks:
   longprojectname-network:

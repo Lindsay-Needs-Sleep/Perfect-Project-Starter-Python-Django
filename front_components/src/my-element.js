@@ -1,6 +1,6 @@
 import { LitElement, css, html } from 'lit'
 import litLogo from './assets/lit.svg'
-import viteLogo from '/img/vite.svg'
+import viteLogo from './assets/vite.svg'
 
 /**
  * An example element.

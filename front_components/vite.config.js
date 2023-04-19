@@ -4,9 +4,9 @@ import { defineConfig } from 'vite'
 export default defineConfig(({ command, mode, ssrBuild }) => {
     const prod = mode == 'production';
     return {
-        publicDir: '../public/',
+        publicDir: './public/',
         build: {
-            outDir: '../public/bundles/',
+            outDir: './public/bundles/',
             copyPublicDir: false,
             minify: prod,
             sourcemap: prod ? 'hidden' : true,

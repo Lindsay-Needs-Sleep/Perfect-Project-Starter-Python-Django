@@ -2,7 +2,7 @@
   "name": "components",
   "version": "0.0.0",
   "scripts": {
-    "autobuild": "nodemon --legacy-watch --exec vite build --mode dev",
+    "autobuild": "nodemon --legacy-watch --ignore ./public --exec vite build --mode dev",
     "build": "vite build",
     "dev": "run-p autobuild host",
     "host": "vite --port 8347 --host"
