@@ -26,14 +26,14 @@ services:
                 - USER_GID=${CURRENT_HOST_USER_GID}
                 - USERNAME=py
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /back_src
+        working_dir: /shortprojectname/src
         volumes:
           - type: volume
             source: back-src-volume
-            target: /back_src
+            target: /shortprojectname/src
           - type: volume
             source: public-src-volume
-            target: /public
+            target: /shortprojectname/public
         ports:
           - "8080:8000"
         depends_on:

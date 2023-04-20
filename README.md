@@ -102,6 +102,7 @@ Front end developement:
 Back-end and integrated front-end development:
 * Run `./backend-start.sh` (see file for options)
 * visit http://localhost:8080/
+* Don't forget to disable browser caching in chrome devtools when developing.
 
 ### #04 - Additional Notes
 
@@ -109,3 +110,4 @@ If `requirements.txt` changes you should rebuild the image
 ```bash
 docker compose build python
 ```
+
