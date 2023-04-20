@@ -8,20 +8,20 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         build: {
             outDir: './public/bundles/',
             copyPublicDir: false,
-            minify: prod,
             sourcemap: prod ? 'hidden' : true,
             lib: {
                 entry: 'src/my-element.js',
-                formats: ['es'],
+                formats: ['iife'],
+                name: 'components',
             },
             rollupOptions: {
-                external: /^lit/,
-            }
+                // external: /^lit/,
+            },
         },
         server: {
             watch: {
-              usePolling: true
-            }
-          }
+                usePolling: true,
+            },
+        }
     }
 })
