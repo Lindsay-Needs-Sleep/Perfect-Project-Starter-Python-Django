@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: ./frontend-start.sh <mode>
+# usage: ./components-start.sh <mode>
 # mode: default - dev server
 #       p - production build
 #       i - interactive

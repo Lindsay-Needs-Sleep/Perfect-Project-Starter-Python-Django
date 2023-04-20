@@ -16,7 +16,7 @@ Simplify/Update the following as required for your project (Currently set up for
 * `.vscode/launch.shared.json`
 * `.editorconfig`
 * `backend-start.sh`
-* `frontend-start.sh`
+* `components-start.sh`
 
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
@@ -96,7 +96,7 @@ Fill out the following files as appropriate
 * (dev) (vscode only) `.vscode/settings.local.json`
 
 Front end developement:
-* Run `./frontend-start.sh` (see file for options)
+* Run `./components-start.sh` (see file for options)
 * visit http://localhost:8347/ to develop components
 
 Back-end and integrated front-end development:
