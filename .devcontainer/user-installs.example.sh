@@ -15,6 +15,8 @@ echo "alias ll='ls -alF'" >> /etc/bash.bashrc
 # Docker shortcuts
 echo "alias d='docker'" >> /etc/bash.bashrc
 echo "alias dc='docker compose'" >> /etc/bash.bashrc
+# removes all currently unused containers
+echo "alias dcrmc='docker rm \$(docker ps -a -q)'" >> /etc/bash.bashrc
 # removes all currently unused containers/images
 echo "alias dcrmci='docker rm \$(docker ps -a -q); docker rmi \$(docker images -q)'" >> /etc/bash.bashrc
 # removes all currently unused containers/volumes
