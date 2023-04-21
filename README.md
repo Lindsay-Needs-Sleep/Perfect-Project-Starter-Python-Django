@@ -12,11 +12,20 @@ Replace all instances of the following the project:
 
 Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
 * `docker/docker-compose.*.yml` files
-* `backend-start.sh` currently produces different django start commands based on environment variables
 * `.vscode/launch.shared.json`
+* `.vscode/settings.local.example.json`
 * `.editorconfig`
 * `backend-start.sh`
 * `components-start.sh`
+* `.devcontainer/user-installs.example.sh`
+
+Run the commands below
+```bash
+# Create uncommitted files from examples (if they don't already exist)
+cp -n ./docker/docker-compose.dev.override.example.yml ./docker/docker-compose.override.yml
+cp -n .devcontainer/user-installs.example.sh .devcontainer/user-installs.sh
+cp -n .vscode/settings.local.example.json .vscode/settings.local.json
+```
 
 If you need to interactively initialize your code in the container with it's exact environment...
 * Do steps #01 and #02 of [setup-and-run](#setup-and-run)
