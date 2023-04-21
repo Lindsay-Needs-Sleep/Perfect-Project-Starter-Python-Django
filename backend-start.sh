@@ -8,7 +8,7 @@
 #       tw - test and wait debugger to attach
 #       m - migrate
 #       mm - make migrations
-#       s - style check
+#       s - autofix some styles and style check
 #       st - style check and test
 #       i - interactive
 
@@ -21,7 +21,7 @@ case $1 in
         python /usr/local/python/pycodestyle.py
         ");;
     st) COMMAND=(bash -c "
-        python -W ignore::DeprecationWarning /usr/local/python/autopep8.py . &&
+        echo 'For style errors, run \"./backend-start.sh s\" to autofix' &&
         python /usr/local/python/pycodestyle.py &&
         python manage.py test --keepdb
         ");;
