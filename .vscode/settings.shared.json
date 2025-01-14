@@ -1,2 +1,39 @@
 {
+    "files.associations": {
+        ".env*": "shellscript"
+    },
+    "editor.formatOnSave": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[django-html]": {
+        "editor.formatOnSave": false,
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.probe": [
+        "javascript",
+        "svelte"
+    ],
+    "eslint.validate": [
+        "javascript",
+        "svelte"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "svelte.ask-to-enable-ts-plugin": false,
 }

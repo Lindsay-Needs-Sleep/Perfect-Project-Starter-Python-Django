@@ -1,4 +1,8 @@
 #!/bin/bash
 
+# Check style and run tests
+# We can't check top level files since there is no cross-platform (easy) way to run the style check within the dev container (when windows users are using vscode's dev container and committing from windows.
+./sr-run.sh st
+
 # Check python style and run tests
 ./backend-start.sh st

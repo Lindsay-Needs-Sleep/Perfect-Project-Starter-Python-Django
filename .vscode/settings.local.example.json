@@ -19,10 +19,8 @@
     "Ubuntu-20.04 (WSL)": {
       "path": "C:\\Windows\\System32\\wsl.exe",
       "args": [
-        "-d",
-        "Ubuntu-20.04",
         "--cd",
-        "/mnt/z/Linds/Projects/PathOfHistory/server/"
+        "/mnt/z/Linds/Projects/loomianlegacy/"
       ]
     }
   },

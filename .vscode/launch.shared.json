@@ -32,6 +32,17 @@
                     "remoteRoot": "/back_src"
                 }
             ]
+        },
+        {
+                {
+            "name": "Node do something",
+            "type": "node",
+            "request": "attach",
+            "continueOnAttach": true,
+            "address": "soft-reset-host",
+            "port": 9229,
+            "localRoot": "${workspaceFolder}/node",
+            "remoteRoot": "/node"
         }
     ]
 }
