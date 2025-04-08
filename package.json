@@ -1,13 +1,13 @@
 {
     "type": "module",
     "scripts": {
-        "style-eslint-check": "eslint . --config ./shared/eslint.config.mjs",
+        "style-eslint-check": "eslint . --config ./shared_volume/eslint.config.mjs",
         "style-eslint-fix": "npm run style-eslint-check -- --fix"
     },
     "devDependencies": {
         "@eslint/eslintrc": "3.2.0",
-        "@eslint/js": "^9.18.0",
-        "eslint": "^9.18.0",
-        "globals": "^15.14.0"
+        "@eslint/js": "9.18.0",
+        "eslint": "9.18.0",
+        "globals": "15.14.0"
     }
 }

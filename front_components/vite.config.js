@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -23,5 +23,5 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
                 usePolling: true,
             },
         }
-    }
-})
+    };
+});

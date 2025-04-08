@@ -14,16 +14,13 @@ const compat = new FlatCompat({
 
 export default [
     {
-        ignores: ['**/node_modules/*'],
+        // https://eslint.org/blog/2022/08/new-config-system-part-2/#glob-based-configs-everywhere
+        ignores: ['**/node_modules/*', '**/public/*'],
     },
     ...compat.extends('eslint:recommended'),
     {
         languageOptions: {
-            globals: {
-                ...globals.node,
-            },
-
-            ecmaVersion: 'latest',
+            ecmaVersion: 2025,
             sourceType: 'module',
         },
 
@@ -42,4 +39,22 @@ export default [
                 ignoreRestSiblings: true,
             }],
         },
-    }];
+    },
+    {
+        files: ['**/front_components/*'],
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                window: true,
+            },
+        },
+    },
+    {
+        files: ['**/node_src/**'],
+        languageOptions: {
+            globals: {
+                ...globals.node,
+            },
+        },
+    },
+];
