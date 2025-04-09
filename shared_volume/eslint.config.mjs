@@ -41,7 +41,7 @@ export default [
         },
     },
     {
-        files: ['**/front_components/*'],
+        files: ['**/front_components/**'],
         languageOptions: {
             globals: {
                 ...globals.browser,
