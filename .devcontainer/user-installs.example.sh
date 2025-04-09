@@ -1,3 +1,6 @@
+# enable git push -f from in the dev container
+git config --global --add safe.directory $(pwd)
+
 # Make bash autocomplete work like windows
 echo "TAB:menu-complete" >> /etc/inputrc
 # Disable bell sound in bash
