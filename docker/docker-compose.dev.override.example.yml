@@ -15,6 +15,7 @@ services:
         networks:
             longprojectname-network:
 
+
     python:
         build:
             args:
@@ -49,7 +50,6 @@ volumes:
         name: longprojectname-public-src
 
 networks:
-  longprojectname-network:
-    name: longprojectname-network
-    external: true
-
+    longprojectname-network:
+        name: longprojectname-network
+        external: true

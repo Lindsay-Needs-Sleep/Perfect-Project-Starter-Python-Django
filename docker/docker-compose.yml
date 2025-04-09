@@ -8,13 +8,13 @@ services:
     postgres:
         image: postgres:15.2
         environment:
-          - PGDATA=/postgresql/data
+            - PGDATA=/postgresql/data
         volumes:
-          - type: volume
-            source: postgres-data
-            target: /postgresql/data
-            volume:
-                nocopy: true
+            - type: volume
+              source: postgres-data
+              target: /postgresql/data
+              volume:
+                  nocopy: true
 
     python:
         image: shortprojectname.python:0.0
@@ -28,29 +28,30 @@ services:
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
         working_dir: /shortprojectname/src
         volumes:
-          - type: volume
-            source: back-src-volume
-            target: /shortprojectname/src
-          - type: volume
-            source: public-src-volume
-            target: /shortprojectname/public
+            - type: volume
+              source: back-src-volume
+              target: /shortprojectname/src
+            - type: volume
+              source: public-src-volume
+              target: /shortprojectname/public
         ports:
-          - "8080:8000"
+            - "8080:8000"
         depends_on:
-          - postgres
+            - postgres
 
     front-components:
         image: node:19.9.0
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
         working_dir: /front_components
         volumes:
-          - type: volume
-            source: front-components-src-volume
-            target: /front_components
-          - type: volume
-            source: public-src-volume
-            target: /front_components/public
+            - type: volume
+              source: front-components-src-volume
+              target: /front_components
+            - type: volume
+              source: public-src-volume
+              target: /front_components/public
 
 volumes:
     postgres-data:
+
 
