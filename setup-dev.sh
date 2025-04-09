@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # django
-cp -n back_src/zzz_config_zzz/settings_local.example.py back_src/zzz_config_zzz/settings_local.py
+cp -n django_src/zzz_config_zzz/settings_local.example.py django_src/zzz_config_zzz/settings_local.py
 
 # Required to make sure docker runs with the right user
 # May need to delete .env to refresh

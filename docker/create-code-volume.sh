@@ -18,8 +18,8 @@
 # Docker from Docker docs:
 # https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose#using-bind-mounts-when-working-with-docker-inside-the-container
 # https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/back_src --opt type=none --opt o=bind longprojectname-back-src
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/front_components --opt type=none --opt o=bind longprojectname-front-components-src
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/django_src --opt type=none --opt o=bind longprojectname-django-src
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vite_src --opt type=none --opt o=bind longprojectname-vite-src
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/public --opt type=none --opt o=bind longprojectname-public-src
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/node_src --opt type=none --opt o=bind longprojectname-node-program-src
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/shared_volume --opt type=none --opt o=bind longprojectname-shared-volume
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/node_src --opt type=none --opt o=bind longprojectname-node-src
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/shared_volume --opt type=none --opt o=bind longprojectname-shared-src-volume

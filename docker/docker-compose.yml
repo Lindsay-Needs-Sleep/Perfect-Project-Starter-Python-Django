@@ -15,7 +15,7 @@ services:
               volume:
                   nocopy: true
 
-    python:
+    django:
         image: shortprojectname.python:0.0
         build:
             context: ../
@@ -28,7 +28,7 @@ services:
         working_dir: /shortprojectname/src
         volumes:
             - type: volume
-              source: back-src-volume
+              source: django-src-volume
               target: /shortprojectname/src
             - type: volume
               source: public-src-volume
@@ -38,25 +38,25 @@ services:
         depends_on:
             - postgres
 
-    front-components:
+    vite:
         image: node:18
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /front_components
+        working_dir: /vite_src
         volumes:
             - type: volume
-              source: front-components-src-volume
-              target: /front_components
+              source: vite-src-volume
+              target: /vite_src
             - type: volume
               source: public-src-volume
-              target: /front_components/public
+              target: /vite_src/public
 
-    node-program:
+    node:
         image: node:18
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
         working_dir: /node_src
         volumes:
             - type: volume
-              source: node-program-src-volume
+              source: node-src-volume
               target: /node_src
             - type: volume
               source: shared-volume

@@ -4,7 +4,7 @@
 #       p - production build
 #       i - interactive
 
-CONTAINER="front-components"
+CONTAINER="vite"
 EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in

@@ -12,8 +12,8 @@
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/back_src/",
-                    "remoteRoot": "/back_src"
+                    "localRoot": "${workspaceFolder}/django_src/",
+                    "remoteRoot": "/django_src"
                 }
             ]
         },
@@ -28,8 +28,8 @@
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/back_src/",
-                    "remoteRoot": "/back_src"
+                    "localRoot": "${workspaceFolder}/django_src/",
+                    "remoteRoot": "/django_src"
                 }
             ]
         },

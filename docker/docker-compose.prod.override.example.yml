@@ -9,23 +9,23 @@ services:
             - POSTGRES_USER=<fill>
             - POSTGRES_PASSWORD=<fill>
 
-    front-components:
+    vite:
         command: bash -c "npm install && npm run build"
 
 volumes:
-    back-src-volume:
+    django-src-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../back_src
-    front-components-src-volume:
+            device: ../django_src
+    vite-src-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../front_components
-    node-program-src-volume:
+            device: ../vite_src
+    node-src-volume:
         driver: local
         driver_opts:
             type: none

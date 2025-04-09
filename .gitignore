@@ -22,7 +22,7 @@ __pycache__
 db.sqlite3
 
 # django
-back_src/zzz_config_zzz/settings_local.py
+django_src/zzz_config_zzz/settings_local.py
 
 # Generated
 /public/bundles

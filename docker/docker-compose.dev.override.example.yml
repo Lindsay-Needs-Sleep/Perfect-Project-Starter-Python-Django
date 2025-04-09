@@ -14,7 +14,7 @@ services:
             longprojectname-network:
 
 
-    python:
+    django:
         build:
             args:
                 - DEV_BUILD=true
@@ -29,13 +29,13 @@ services:
                 aliases:
                     - longprojectname-debug-container
 
-    front-components:
+    vite:
         command: bash -c "npm install && sleep infinity"
         ports:
             # component development port
             - "8347:8347"
 
-    node-program:
+    node:
         command: bash -c "npm install && sleep infinity"
         ports:
             # component development port
@@ -47,21 +47,21 @@ services:
 
 volumes:
     # Volumes created in /setup-dev.sh
-    back-src-volume:
+    django-src-volume:
         external: true
-        name: longprojectname-back-src
-    front-components-src-volume:
+        name: longprojectname-django-src
+    vite-src-volume:
         external: true
-        name: longprojectname-front-components-src
+        name: longprojectname-vite-src
     public-src-volume:
         external: true
         name: longprojectname-public-src
-    node-program-src-volume:
+    node-src-volume:
         external: true
-        name: longprojectname-node-program-src
+        name: longprojectname-node-src
     shared-volume:
         external: true
-        name: longprojectname-shared-volume
+        name: longprojectname-shared-src-volume
 
 networks:
     longprojectname-network:

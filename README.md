@@ -3,15 +3,9 @@
 ## Adopt this for your project
 
 Replace all instances of the following the project:
+
 * `longprojectname` with `<longer-project-name>` (could collide with other projects)
 * `shortprojectname` with `<name>`
-
-Notes:
-* `back_src` with the relative path to where your python code is/will be (relative to the project root)
-    * Put your python code in this folder
-    * You must have at least an empty `requirements.txt` file
-        * NOTE: If you don't have any files in this folder docker will mess up the permissions on this folder for some reason -.-)
-
 
 Run the commands below
 ```bash
@@ -22,6 +16,7 @@ cp -n .vscode/settings.local.example.json .vscode/settings.local.json
 ```
 
 Simplify/Update the following as required for your project (Currently set up for django project with a postgresql DB)
+
 * `docker/docker-compose.*.yml` files
 * `.editorconfig`
 * `shared_volume/eslint.config.mjs`
@@ -34,6 +29,7 @@ Update the README Title, and (probably) nuke this "Adopt this for your project" 
 ### #01 - Dependencies
 
 Install Docker (and docker compose)
+
 * (dev) [Docker Desktop](https://www.docker.com/products/docker-desktop/)
     * (windows) should use WSL2 engine
 * (prod)
@@ -52,22 +48,24 @@ Install Docker (and docker compose)
 
 This option will automaitcally include all development dependencies, extension recomendations, debug and run configs
 
-* Fill this out to customize your dev container env `.devcontainer/user-installs.sh`
-    * Note: After you have started the dev container (in a few steps) you will need to refresh the dev container any time you update `.devcontainer/user-installs.sh`
-        * `ctrl + shift + P` > `Dev Containers: Rebuild Container` for a completely fresh re-application
-        * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
-* Install the [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)(v0.266.1)
-    * It should ask if you want to "Reopen in Container", say yes. (Otherwise, click on the bottom left corner (green square), `Reopen in Container (Dev Container)`)
+Fill out `.devcontainer/user-installs.sh` to customize your dev container env
+
+* Note: After you have started the dev container (in a few steps) you will need to refresh the dev container any time you update `.devcontainer/user-installs.sh`
+    * `ctrl + shift + P` > `Dev Containers: Rebuild Container` for a completely fresh re-application
+    * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
+
+Install the [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)(v0.266.1)
+
+* It should ask if you want to "Reopen in Container", say yes. (Otherwise, click on the bottom left corner (green square), `Reopen in Container (Dev Container)`)
 
 **Other IDEs** or **VsCode - Step 2 [Option 2 - w/o Dev Container]**
 
 With this option you are in charge of installing and configuring all dependancies/extensions correctly
 
-> Install Python 3.11
->
-> Install extensions:
-> * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
-> * Docker (optional) [[vscode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)]
+* Install Python 3.11
+* Install extensions:
+    * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
+    * Docker (optional) [[vscode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)]
 
 ### #03 - Setup Project
 
@@ -77,6 +75,7 @@ git config core.hooksPath git_hooks
 ```
 
 Run initial setup script (safe to rerun)
+
 * (dev) `./setup-dev.sh`
 * (prod) `./setup-prod.sh`
 
@@ -84,24 +83,37 @@ Check later sections for more details on working with certain projects
 
 ### #04 Run Project
 
-**back_src**:
-* Run `./backend-start.sh` (see file for options)
-* visit http://localhost:8080/
-* Don't forget to disable browser caching in chrome devtools when developing.
+Each project has it's `run-*.sh <option>` file. Some projects have unique options (eg. django has `mm` for `makemigrations`), see the file for all available options and more details.
 
-**front_components**:
-* Run `./components-start.sh` (see file for options)
-* visit http://localhost:8347/ to develop components
+Common options are:
 
-**node_src**:
-* Run `./node-start.sh` (see file for options)
+* <none> (default) - run program (debugging enabled)
+* w - run program and wait debugger to attach
+* p - run production program
+* t - test (debugging enabled)
+* tw - test and wait debugger to attach
+* s - autofix some styles and style check
+* st - style check and test
+* i - interactive (get into the projgram's docker container)
 
-### 05 Additional Porject Setup
 
-**Django**:
+### 05 Additional Project Setup
+
+**Django / Python**:
+
+Notes:
+
+* Put your python code in `django_src`
+* You must have at least an empty `requirements.txt` file
+    * NOTE: If you don't have any files in this folder docker will mess up the permissions on this folder for some reason -.-)
+* If `requirements.txt` changes you should rebuild the image
+    * `docker compose build python`
+* When running, visit http://localhost:8080/
+    * Don't forget to disable browser caching in chrome devtools when developing.
 
 Fill out the following files as appropriate:
-* `/back_src/zz_config_zzz/settings_local.py`
+
+* `/django_src/zz_config_zzz/settings_local.py`
     * Set `DEBUG=True`
     * Other settings as desired
 
@@ -124,8 +136,4 @@ python manage.py migrate
 python manage.py createsuperuser
 # finsihed
 exit
-```
-If `requirements.txt` changes you should rebuild the image
-```bash
-docker compose build python
 ```

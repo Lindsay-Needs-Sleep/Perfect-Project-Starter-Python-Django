@@ -41,7 +41,7 @@ export default [
         },
     },
     {
-        files: ['**/front_components/**'],
+        files: ['**/vite_src/**'],
         languageOptions: {
             globals: {
                 ...globals.browser,
