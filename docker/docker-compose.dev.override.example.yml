@@ -1,7 +1,5 @@
 # automatically merged and used with 'docker compose up'
 
-version: '3.8'
-
 services:
 
     postgres:
@@ -37,6 +35,16 @@ services:
             # component development port
             - "8347:8347"
 
+    node-program:
+        command: bash -c "npm install && sleep infinity"
+        ports:
+            # component development port
+            - "9229:9229"
+        networks:
+            longprojectname-network:
+                aliases:
+                    - longprojectname-node-container
+
 volumes:
     # Volumes created in /setup-dev.sh
     back-src-volume:
@@ -48,6 +56,12 @@ volumes:
     public-src-volume:
         external: true
         name: longprojectname-public-src
+    node-program-src-volume:
+        external: true
+        name: longprojectname-node-program-src
+    shared-volume:
+        external: true
+        name: longprojectname-shared-volume
 
 networks:
     longprojectname-network:

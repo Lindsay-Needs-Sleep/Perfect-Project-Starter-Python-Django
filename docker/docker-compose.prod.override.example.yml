@@ -1,7 +1,5 @@
 # automatically merged and used with 'docker compose up'
 
-version: '3.8'
-
 services:
 
     postgres:
@@ -27,9 +25,21 @@ volumes:
             type: none
             o: bind
             device: ../front_components
+    node-program-src-volume:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: ../node_src
     public-src-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
             device: ../public
+    shared-volume:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: ../shared_volume

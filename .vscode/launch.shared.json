@@ -34,15 +34,12 @@
             ]
         },
         {
-                {
-            "name": "Node do something",
             "type": "node",
             "request": "attach",
-            "continueOnAttach": true,
-            "address": "soft-reset-host",
-            "port": 9229,
-            "localRoot": "${workspaceFolder}/node",
-            "remoteRoot": "/node"
-        }
+            "name": "Docker: Attach to Node",
+            "localRoot": "${workspaceFolder}/node_src",
+            "remoteRoot": "/node_src",
+            "address": "longprojectname-node-container"
+        },
     ]
 }

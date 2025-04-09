@@ -2,6 +2,7 @@
     "name": "loomian-legacy-autoclicker-soft-reset",
     "version": "0.0.0",
     "scripts": {
+        "start": "node run.js",
         "dev": "nodemon --exec node --inspect=0.0.0.0:9229 run.js",
         "dev-wait": "nodemon --exec node --inspect-brk=0.0.0.0:9229 run.js",
         "prod": "node run.js",

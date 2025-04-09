@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: ./sr-run.sh <mode>
+# usage: ./run.sh <mode>
 # mode: default - run dev server (debugging enabled)
 #       w - run dev server and wait debugger to attach
 #       p - run production server
@@ -10,7 +10,7 @@
 #       st - style check and test
 #       i - interactive
 
-CONTAINER="soft-reset"
+CONTAINER="node-program"
 EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in
@@ -21,7 +21,7 @@ case $1 in
         ");;
     st) COMMAND=(bash -cex "
         npm install &&
-        echo 'For style errors, run \"./soft-reset-run.sh s\" to autofix' &&
+        echo 'For style errors, run \"./node-start.sh s\" to autofix' &&
         npm run style-check
         ");;
     t) COMMAND=();;

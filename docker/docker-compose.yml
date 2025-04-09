@@ -1,6 +1,5 @@
 # requires a valid docker-compose.override.yml to work
 
-version: '3.8'
 name: longprojectname
 
 services:
@@ -40,7 +39,7 @@ services:
             - postgres
 
     front-components:
-        image: node:19.9.0
+        image: node:18
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
         working_dir: /front_components
         volumes:
@@ -50,6 +49,18 @@ services:
             - type: volume
               source: public-src-volume
               target: /front_components/public
+
+    node-program:
+        image: node:18
+        user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
+        working_dir: /node_src
+        volumes:
+            - type: volume
+              source: node-program-src-volume
+              target: /node_src
+            - type: volume
+              source: shared-volume
+              target: /node_src/shared_volume
 
 volumes:
     postgres-data:

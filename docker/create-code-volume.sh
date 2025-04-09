@@ -21,3 +21,5 @@
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/back_src --opt type=none --opt o=bind longprojectname-back-src
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/front_components --opt type=none --opt o=bind longprojectname-front-components-src
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/public --opt type=none --opt o=bind longprojectname-public-src
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/node_src --opt type=none --opt o=bind longprojectname-node-program-src
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/shared_volume --opt type=none --opt o=bind longprojectname-shared-volume
