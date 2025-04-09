@@ -1,68 +1,68 @@
 # requires a valid docker-compose.override.yml to work
 
-name: longprojectname
+name: projectname
 
 services:
 
-    postgres:
-        image: postgres:15.2
-        environment:
-            - PGDATA=/postgresql/data
-        volumes:
-            - type: volume
-              source: postgres-data
-              target: /postgresql/data
-              volume:
-                  nocopy: true
+  postgres-con:
+    image: postgres:15.2
+    environment:
+      - PGDATA=/postgresql/data
+    volumes:
+      - type: volume
+        source: postgres-data
+        target: /postgresql/data
+        volume:
+          nocopy: true
 
-    django:
-        image: shortprojectname.python:0.0
-        build:
-            context: ../
-            dockerfile: ./docker/python.Dockerfile
-            args:
-                - USER_UID=${CURRENT_HOST_USER_UID}
-                - USER_GID=${CURRENT_HOST_USER_GID}
-                - USERNAME=py
-        user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /shortprojectname/src
-        volumes:
-            - type: volume
-              source: django-src-volume
-              target: /shortprojectname/src
-            - type: volume
-              source: public-src-volume
-              target: /shortprojectname/public
-        ports:
-            - "8080:8000"
-        depends_on:
-            - postgres
+  django-con:
+    image: projectname.python:0.0
+    build:
+      context: ../
+      dockerfile: ./docker/python.Dockerfile
+      args:
+        - USER_UID=${CURRENT_HOST_USER_UID}
+        - USER_GID=${CURRENT_HOST_USER_GID}
+        - USERNAME=py
+    user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
+    working_dir: /projectname/src
+    volumes:
+      - type: volume
+        source: django-src-volume
+        target: /projectname/src
+      - type: volume
+        source: public-src-volume
+        target: /projectname/public
+    ports:
+      - "8080:8000"
+    depends_on:
+      - postgres-con
 
-    vite:
-        image: node:18
-        user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /vite_src
-        volumes:
-            - type: volume
-              source: vite-src-volume
-              target: /vite_src
-            - type: volume
-              source: public-src-volume
-              target: /vite_src/public
+  vite-con:
+    image: node:18
+    user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
+    working_dir: /vite_src
+    volumes:
+      - type: volume
+        source: vite-src-volume
+        target: /vite_src
+      - type: volume
+        source: public-src-volume
+        target: /vite_src/public
 
-    node:
-        image: node:18
-        user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /node_src
-        volumes:
-            - type: volume
-              source: node-src-volume
-              target: /node_src
-            - type: volume
-              source: shared-volume
-              target: /node_src/shared_volume
+  node-con:
+    image: node:18
+    user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
+    working_dir: /node_src
+    volumes:
+      - type: volume
+        source: node-src-volume
+        target: /node_src
+      - type: volume
+        source: shared-volume
+        target: /node_src/shared_volume
 
 volumes:
-    postgres-data:
+  postgres-data:
 
 

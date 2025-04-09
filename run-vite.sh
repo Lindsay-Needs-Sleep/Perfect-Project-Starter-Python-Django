@@ -4,7 +4,7 @@
 #       p - production build
 #       i - interactive
 
-CONTAINER="vite"
+CONTAINER="vite-con"
 EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in

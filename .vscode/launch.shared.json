@@ -7,7 +7,7 @@
             "justMyCode": false,
             "request": "attach",
             "connect": {
-                "host": "longprojectname-debug-container",
+                "host": "projectname-debug-container",
                 "port": 5679
             },
             "pathMappings": [
@@ -23,7 +23,7 @@
             "justMyCode": false,
             "request": "attach",
             "connect": {
-                "host": "longprojectname-debug-container",
+                "host": "projectname-debug-container",
                 "port": 5678
             },
             "pathMappings": [
@@ -39,7 +39,7 @@
             "name": "Docker: Attach to Node",
             "localRoot": "${workspaceFolder}/node_src",
             "remoteRoot": "/node_src",
-            "address": "longprojectname-node-container"
+            "address": "projectname-node-container"
         },
     ]
 }

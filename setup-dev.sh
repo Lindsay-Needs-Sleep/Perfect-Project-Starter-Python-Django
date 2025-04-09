@@ -15,4 +15,4 @@ cp -n docker/.env-dev docker/.env
 . docker/create-code-volume.sh
 
 # Ensure the docker network exists (for non-devcontainer users)
-docker network create longprojectname-network || true
+docker network create projectname-network || true

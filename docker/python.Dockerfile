@@ -19,8 +19,8 @@ RUN groupadd -g ${USER_GID} ${USERNAME}
 RUN adduser --uid ${USER_UID} --gid ${USER_GID} --disabled-password ${USERNAME}
 
 # Manually create the static dir because of some permissions difficulty
-RUN mkdir -p /shortprojectname/static
-RUN chmod 777 /shortprojectname/static
+RUN mkdir -p /projectname/static
+RUN chmod 777 /projectname/static
 
 # Switch to our non-root user
 USER ${USERNAME}

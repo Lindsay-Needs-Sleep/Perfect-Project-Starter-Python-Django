@@ -12,7 +12,7 @@
 #       st - style check and test
 #       i - interactive
 
-CONTAINER="django"
+CONTAINER="django-con"
 EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in

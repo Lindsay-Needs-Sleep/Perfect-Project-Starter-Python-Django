@@ -10,7 +10,7 @@
 #       st - style check and test
 #       i - interactive
 
-CONTAINER="node"
+CONTAINER="node-con"
 EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in

@@ -2,10 +2,7 @@
 
 ## Adopt this for your project
 
-Replace all instances of the following the project:
-
-* `longprojectname` with `<longer-project-name>` (could collide with other projects)
-* `shortprojectname` with `<name>`
+Replace all instances of `projectname` with `<projectname>` (could collide with other projects)
 
 Run the commands below
 ```bash

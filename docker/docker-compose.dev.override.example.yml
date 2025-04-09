@@ -2,7 +2,7 @@
 
 services:
 
-    postgres:
+    postgres-con:
         environment:
             - POSTGRES_DB=postgres
             - POSTGRES_USER=postgres
@@ -11,10 +11,10 @@ services:
         ports:
             - "5432:5432"
         networks:
-            longprojectname-network:
+            projectname-network:
 
 
-    django:
+    django-con:
         build:
             args:
                 - DEV_BUILD=true
@@ -25,45 +25,45 @@ services:
             # tests debug port
             - "5679:5679"
         networks:
-            longprojectname-network:
+            projectname-network:
                 aliases:
-                    - longprojectname-debug-container
+                    - projectname-debug-container
 
-    vite:
+    vite-con:
         command: bash -c "npm install && sleep infinity"
         ports:
             # component development port
             - "8347:8347"
 
-    node:
+    node-con:
         command: bash -c "npm install && sleep infinity"
         ports:
             # component development port
             - "9229:9229"
         networks:
-            longprojectname-network:
+            projectname-network:
                 aliases:
-                    - longprojectname-node-container
+                    - projectname-node-container
 
 volumes:
     # Volumes created in /setup-dev.sh
     django-src-volume:
         external: true
-        name: longprojectname-django-src
+        name: projectname-django-src
     vite-src-volume:
         external: true
-        name: longprojectname-vite-src
+        name: projectname-vite-src
     public-src-volume:
         external: true
-        name: longprojectname-public-src
+        name: projectname-public-src
     node-src-volume:
         external: true
-        name: longprojectname-node-src
+        name: projectname-node-src
     shared-volume:
         external: true
-        name: longprojectname-shared-src-volume
+        name: projectname-shared-src-volume
 
 networks:
-    longprojectname-network:
-        name: longprojectname-network
+    projectname-network:
+        name: projectname-network
         external: true
