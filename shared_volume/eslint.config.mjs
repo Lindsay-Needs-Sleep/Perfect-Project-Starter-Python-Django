@@ -1,4 +1,3 @@
-import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
@@ -15,7 +14,7 @@ const compat = new FlatCompat({
 export default [
     {
         // https://eslint.org/blog/2022/08/new-config-system-part-2/#glob-based-configs-everywhere
-        ignores: ['**/node_modules/*', '**/public/*'],
+        ignores: ['**/node_modules/*', '**/public/*', ],
     },
     ...compat.extends('eslint:recommended'),
     {
@@ -38,23 +37,6 @@ export default [
                 args: 'none',
                 ignoreRestSiblings: true,
             }],
-        },
-    },
-    {
-        files: ['**/vite_src/**'],
-        languageOptions: {
-            globals: {
-                ...globals.browser,
-                window: true,
-            },
-        },
-    },
-    {
-        files: ['**/node_src/**'],
-        languageOptions: {
-            globals: {
-                ...globals.node,
-            },
         },
     },
 ];

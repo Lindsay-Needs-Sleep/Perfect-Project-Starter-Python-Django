@@ -1,5 +1,7 @@
 # enable git push -f from in the dev container
 git config --global --add safe.directory $(pwd)
+# setup git hooks
+git config core.hooksPath git_hooks
 
 # Make bash autocomplete work like windows
 echo "TAB:menu-complete" >> /etc/inputrc

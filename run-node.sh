@@ -21,7 +21,7 @@ case $1 in
         ");;
     st) COMMAND=(bash -cex "
         npm install &&
-        echo 'For style errors, run \"./node-start.sh s\" to autofix' &&
+        echo 'For style errors, run \"./run-node.sh s\" to autofix' &&
         npm run style-check
         ");;
     t) COMMAND=();;

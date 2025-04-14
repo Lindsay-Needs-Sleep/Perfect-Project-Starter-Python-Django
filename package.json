@@ -1,7 +1,7 @@
 {
     "type": "module",
     "scripts": {
-        "style-eslint-check": "eslint . --config ./shared_volume/eslint.config.mjs",
+        "style-eslint-check": "eslint . --config ./eslint.config.mjs",
         "style-eslint-fix": "npm run style-eslint-check -- --fix"
     },
     "devDependencies": {

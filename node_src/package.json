@@ -1,12 +1,12 @@
 {
-    "name": "loomian-legacy-autoclicker-soft-reset",
+    "name": "projectname",
     "version": "0.0.0",
     "scripts": {
         "start": "node run.js",
         "dev": "nodemon --exec node --inspect=0.0.0.0:9229 run.js",
         "dev-wait": "nodemon --exec node --inspect-brk=0.0.0.0:9229 run.js",
         "prod": "node run.js",
-        "style-check": "eslint . --config ./shared_volume/eslint.config.mjs",
+        "style-check": "eslint . --config ./eslint.config.node_src.mjs",
         "style-fix": "npm run style-check -- --fix"
     },
     "devDependencies": {

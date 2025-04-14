@@ -4,6 +4,6 @@
 
 # We can't check top level files since there is no cross-platform (easy) way to run the style check within the dev container (when windows users are using vscode's dev container and committing from windows.
 
-./node-start.sh st
-./components-start.sh st
-./backend-start.sh st
+./run-django.sh st
+./run-node.sh st
+./run-vite.sh st
