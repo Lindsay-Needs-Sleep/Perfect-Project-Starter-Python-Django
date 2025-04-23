@@ -59,7 +59,7 @@ Install the [Dev Containers Extension](https://marketplace.visualstudio.com/item
 
 With this option you are in charge of installing and configuring all dependancies/extensions correctly
 
-* Install Python 3.11
+* Install Node 18
 * Install extensions:
     * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
     * Docker (optional) [[vscode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)]
