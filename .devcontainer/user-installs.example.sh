@@ -1,8 +1,3 @@
-# enable git push -f from in the dev container
-git config --global --add safe.directory $(pwd)
-# setup git hooks
-git config core.hooksPath git_hooks
-
 # Make bash autocomplete work like windows
 echo "TAB:menu-complete" >> /etc/inputrc
 # Disable bell sound in bash
@@ -29,3 +24,9 @@ echo "alias dcrmcv='docker rm \$(docker ps -a -q); docker volume rm -f \$(docker
 # removes all currently unused containers/images/volumes
 echo "alias dcrmciv='docker rm \$(docker ps -a -q); docker rmi \$(docker images -q); docker volume rm -f \$(docker volume list -q)'" >> /etc/bash.bashrc
 
+# project directory configuration
+echo "cd $(pwd)" >> /etc/bash.bashrc
+# enable git push -f from in the dev container
+echo "git config --global --add safe.directory $(pwd)" >> /etc/bash.bashrc
+# setup git hooks
+echo "git config core.hooksPath git_hooks" >> /etc/bash.bashrc
