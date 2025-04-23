@@ -6,7 +6,7 @@
 #       p - run production server
 #       t - test (debugging enabled)
 #       tw - test and wait debugger to attach
-#       s - autofix some styles and style check
+#       sf - autofix some styles and style check
 #       st - style check and test
 #       i - interactive
 
@@ -15,7 +15,7 @@ EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in
     i) COMMAND=(bash);;
-    s) COMMAND=(bash -cex "
+    sf) COMMAND=(bash -cex "
         npm install &&
         npm run style-fix
         ");;

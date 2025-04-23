@@ -49,6 +49,9 @@ services:
             - type: volume
               source: public-src-volume
               target: /vite_src/public
+            - type: volume
+              source: shared-volume
+              target: /vite_src/shared_volume
 
     node-con:
         image: node:18

@@ -2,6 +2,8 @@
 # usage: ./components-start.sh <mode>
 # mode: default - dev server
 #       p - production build
+#       sf - autofix some styles and style check
+#       st - style check and test
 #       i - interactive
 
 CONTAINER="vite-con"
@@ -12,6 +14,15 @@ case $1 in
     p) COMMAND=(bash -c "
         npm install --omit=dev &&
         npm run build
+        ");;
+    sf) COMMAND=(bash -cex "
+        npm install &&
+        npm run style-fix
+        ");;
+    st) COMMAND=(bash -cex "
+        npm install &&
+        echo 'For style errors, run \"./run-node.sh s\" to autofix' &&
+        npm run style-check
         ");;
     *) COMMAND=(bash -c "
         npm install &&
