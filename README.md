@@ -25,7 +25,7 @@ Update the README Title, and (probably) nuke this "Adopt this for your project" 
 
 ### #01 - Dependencies
 
-Install Docker (and docker compose)
+Install Docker (and docker-compose)
 
 * (dev) [Docker Desktop](https://www.docker.com/products/docker-desktop/)
     * (windows) should use WSL2 engine
@@ -104,7 +104,7 @@ Notes:
 * You must have at least an empty `requirements.txt` file
     * NOTE: If you don't have any files in this folder docker will mess up the permissions on this folder for some reason -.-)
 * If `requirements.txt` changes you should rebuild the image
-    * `docker compose build python`
+    * `docker-compose build python`
 * When running, visit http://localhost:8080/
     * Don't forget to disable browser caching in chrome devtools when developing.
 

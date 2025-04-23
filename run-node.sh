@@ -11,7 +11,7 @@
 #       i - interactive
 
 CONTAINER="node-con"
-EXEC="docker compose exec -it ${CONTAINER}"
+EXEC="docker-compose exec -it ${CONTAINER}"
 
 case $1 in
     i) COMMAND=(bash);;
@@ -45,7 +45,7 @@ case $1 in
 esac
 
 # Ensure the developement containers are running (python and front are just sleeping)
-(cd ./docker && docker compose up $CONTAINER --no-recreate --detach)
+(cd ./docker && docker-compose up $CONTAINER --no-recreate --detach)
 
 echo $EXEC "${COMMAND[@]}"
 (cd ./docker && $EXEC "${COMMAND[@]}")
