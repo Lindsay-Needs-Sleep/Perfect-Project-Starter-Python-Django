@@ -13,6 +13,7 @@
 /docker/.env
 /docker/.env-dev
 /docker/docker-compose.override.yml
+docker/postgres.env
 
 # Node
 node_modules

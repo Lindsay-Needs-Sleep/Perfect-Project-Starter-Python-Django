@@ -8,6 +8,8 @@ services:
         image: postgres:15.2
         environment:
             - PGDATA=/postgresql/data
+        env_file:
+            - ./postgres.env
         volumes:
             - type: volume
               source: postgres-data

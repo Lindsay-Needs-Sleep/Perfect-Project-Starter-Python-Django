@@ -3,6 +3,9 @@
 # django
 cp -n django_src/zzz_config_zzz/settings_local.example.py django_src/zzz_config_zzz/settings_local.py
 
+# PostgresSQL database variables setup
+cp -n docker/postgres.example.env docker/postgres.env
+
 # Required to make sure docker runs with the right user
 # May need to delete .env to refresh
 rm -f docker/.env-dev

@@ -4,10 +4,6 @@ services:
 
     postgres-con:
         command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-        environment:
-            - POSTGRES_DB=<fill>
-            - POSTGRES_USER=<fill>
-            - POSTGRES_PASSWORD=<fill>
 
     vite-con:
         command: bash -c "npm install && npm run build"
