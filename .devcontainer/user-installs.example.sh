@@ -31,3 +31,6 @@ echo "git config --global --add safe.directory $(pwd)" >> /etc/bash.bashrc
 # setup git hooks
 echo "git config core.hooksPath git_hooks" >> /etc/bash.bashrc
 # to undo: git config --unset core.hookspath
+
+# download node modules for eslinting and stuff
+npm install
