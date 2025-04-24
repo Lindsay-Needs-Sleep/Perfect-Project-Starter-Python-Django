@@ -23,7 +23,7 @@ services:
         networks:
             projectname-network:
                 aliases:
-                    - projectname-debug-container
+                    - django-container
 
     vite-con:
         command: bash -c "npm install && sleep infinity"
@@ -39,25 +39,25 @@ services:
         networks:
             projectname-network:
                 aliases:
-                    - projectname-node-container
+                    - node-container
 
 volumes:
     # Volumes created in /setup-dev.sh
-    django-src-volume:
+    django-volume:
         external: true
-        name: projectname-django-src
-    vite-src-volume:
+        name: projectname-django-vol
+    vite-volume:
         external: true
-        name: projectname-vite-src
-    public-src-volume:
+        name: projectname-vite-vol
+    public-volume:
         external: true
-        name: projectname-public-src
-    node-src-volume:
+        name: projectname-public-vol
+    node-volume:
         external: true
-        name: projectname-node-src
+        name: projectname-node-vol
     shared-volume:
         external: true
-        name: projectname-shared-src-volume
+        name: projectname-shared-vol
 
 networks:
     projectname-network:

@@ -9,25 +9,25 @@ services:
         command: bash -c "npm install && npm run build"
 
 volumes:
-    django-src-volume:
+    django-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../django_src
-    vite-src-volume:
+            device: ../proj_django
+    vite-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../vite_src
-    node-src-volume:
+            device: ../proj_vite
+    node-volume:
         driver: local
         driver_opts:
             type: none
             o: bind
-            device: ../node_src
-    public-src-volume:
+            device: ../proj_node
+    public-volume:
         driver: local
         driver_opts:
             type: none

@@ -18,7 +18,6 @@ services:
                   nocopy: true
 
     django-con:
-        image: projectname.python:0.0
         build:
             context: ../
             dockerfile: ./docker/python.Dockerfile
@@ -30,10 +29,10 @@ services:
         working_dir: /proj/src
         volumes:
             - type: volume
-              source: django-src-volume
+              source: django-volume
               target: /proj/src
             - type: volume
-              source: public-src-volume
+              source: public-volume
               target: /proj/public
         ports:
             - "8080:8000"
@@ -46,10 +45,10 @@ services:
         working_dir: /proj
         volumes:
             - type: volume
-              source: vite-src-volume
+              source: vite-volume
               target: /proj
             - type: volume
-              source: public-src-volume
+              source: public-volume
               target: /proj/public
             - type: volume
               source: shared-volume
@@ -61,7 +60,7 @@ services:
         working_dir: /proj
         volumes:
             - type: volume
-              source: node-src-volume
+              source: node-volume
               target: /proj
             - type: volume
               source: shared-volume

@@ -27,5 +27,5 @@ USER ${USERNAME}
 # This is where root python packages are installed
 ENV PATH="$PATH:/home/${USERNAME}/.local/bin"
 
-COPY django_src/requirements.txt .
+COPY proj_django/requirements.txt .
 RUN pip install --user -r requirements.txt

@@ -7,13 +7,13 @@
             "justMyCode": false,
             "request": "attach",
             "connect": {
-                "host": "projectname-debug-container",
+                "host": "django-container",
                 "port": 5679
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/django_src/",
-                    "remoteRoot": "/django_src"
+                    "localRoot": "${workspaceFolder}/proj_django/",
+                    "remoteRoot": "/proj"
                 }
             ]
         },
@@ -23,13 +23,13 @@
             "justMyCode": false,
             "request": "attach",
             "connect": {
-                "host": "projectname-debug-container",
+                "host": "django-container",
                 "port": 5678
             },
             "pathMappings": [
                 {
-                    "localRoot": "${workspaceFolder}/django_src/",
-                    "remoteRoot": "/django_src"
+                    "localRoot": "${workspaceFolder}/proj_django/",
+                    "remoteRoot": "/proj"
                 }
             ]
         },
@@ -37,9 +37,9 @@
             "type": "node",
             "request": "attach",
             "name": "Docker: Attach to Node",
-            "localRoot": "${workspaceFolder}/node_src",
-            "remoteRoot": "/node_src",
-            "address": "projectname-node-container"
+            "localRoot": "${workspaceFolder}/proj_node",
+            "remoteRoot": "/proj",
+            "address": "node-container"
         },
     ]
 }

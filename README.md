@@ -95,7 +95,7 @@ Common options are:
 
 Notes:
 
-* Put your python code in `django_src`
+* Put your python code in `proj_django`
 * You must have at least an empty `requirements.txt` file
     * NOTE: If you don't have any files in this folder docker will mess up the permissions on this folder for some reason -.-)
 * If `requirements.txt` changes you should rebuild the image
@@ -105,7 +105,7 @@ Notes:
 
 Fill out the following files as appropriate:
 
-* `/django_src/zz_config_zzz/settings_local.py`
+* `/proj_django/zz_config_zzz/settings_local.py`
     * Set `DEBUG=True`
     * Other settings as desired
 
