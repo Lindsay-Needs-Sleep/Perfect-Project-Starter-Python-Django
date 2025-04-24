@@ -5,11 +5,6 @@ echo "set bell-style none" >> /etc/inputrc
 # add option to /etc/inputrc to enable case-insensitive tab completion for all users
 echo "set completion-ignore-case On" >> /etc/inputrc
 
-# Required to make sure docker runs with the right user
-# (Handled by setup-dev for now)
-# echo "export CURRENT_HOST_USER_UID=\$(id -u)" >> /home/vscode/.bashrc
-# echo "export CURRENT_HOST_USER_GID=\$(id -g)" >> /home/vscode/.bashrc
-
 # add command to print nicer ls
 echo "alias ll='ls -alF'" >> /etc/bash.bashrc
 # Docker shortcuts
