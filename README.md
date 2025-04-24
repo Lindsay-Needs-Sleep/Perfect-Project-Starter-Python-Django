@@ -23,7 +23,7 @@ Update the README Title, and (probably) nuke this "Adopt this for your project" 
 
 ## Setup and run
 
-### #01 - Dependencies
+### 01 - Dependencies
 
 Install Docker (and docker-compose)
 
@@ -31,9 +31,9 @@ Install Docker (and docker-compose)
     * (windows) should use WSL2 engine
 * (prod)
 
-### #02 - IDE setup
+### 02 - IDE setup
 
-**VsCode - Step 1**
+#### VsCode - Step 1
 
 * update `.vscode/*.json` files
     * `*.local.json` are uncommitted, while `*.shared.json` are committed
@@ -41,35 +41,30 @@ Install Docker (and docker-compose)
 * Install [WorkSpace Config Plus](https://marketplace.visualstudio.com/items?itemName=swellaby.workspace-config-plus)
     * Note: [it doesn't work in devconatiners yet](https://github.com/swellaby/vscode-workspace-config-plus/issues/121)
 
-**VsCode - Step 2 [Option 1 - w/ Dev Container (v1.74.3) (Recommended)]**
+#### VsCode - Step 2 w/ Dev Container (v1.74.3) (Recommended)
 
-This option will automaitcally include all development dependencies, extension recomendations, debug and run configs
+This option will automaitcally include all development dependencies, extension recomendations, debug and run configs. If you don't want to use a dev container skip to the "Other IDEs" section.
 
 Fill out `.devcontainer/user-installs.sh` to customize your dev container env
 
-* Note: After you have started the dev container (in a few steps) you will need to refresh the dev container any time you update `.devcontainer/user-installs.sh`
+* Note: After you have started the dev container (in a few steps) you will need to refresh the dev container any time you update files in `.devcontainer/*`
     * `ctrl + shift + P` > `Dev Containers: Rebuild Container` for a completely fresh re-application
-    * Or re-run the file directly for a quick and dirty update `bash .devcontainer/user-installs.sh`
 
 Install the [Dev Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)(v0.266.1)
 
-* It should ask if you want to "Reopen in Container", say yes. (Otherwise, click on the bottom left corner (green square), `Reopen in Container (Dev Container)`)
+* It should ask if you want to "Reopen in Container", say yes. (Otherwise, click on the bottom left corner (green), `Reopen in Container (Dev Container)`)
 
-**Other IDEs** or **VsCode - Step 2 [Option 2 - w/o Dev Container]**
+#### Other IDEs
 
 With this option you are in charge of installing and configuring all dependancies/extensions correctly
 
+* Register commit hooks `git config core.hooksPath git_hooks`
 * Install Node 18
 * Install extensions:
     * EditorConfig (recommended) [[vscode](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)]
     * Docker (optional) [[vscode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)]
 
-### #03 - Setup Project
-
-```bash
-# Register commit hooks
-git config core.hooksPath git_hooks
-```
+### 03 - Setup Project
 
 Run initial setup script (safe to rerun)
 
@@ -78,9 +73,9 @@ Run initial setup script (safe to rerun)
 
 Check later sections for more details on working with certain projects
 
-### #04 Run Project
+### 04 Run Project Portion
 
-Each project has it's `run-*.sh <option>` file. Some projects have unique options (eg. django has `mm` for `makemigrations`), see the file for all available options and more details.
+Each project portion has it's `run-*.sh <option>` file. Some projects have unique options (eg. django has `mm` for `makemigrations`), see the file for all available options and more details.
 
 Common options are:
 
