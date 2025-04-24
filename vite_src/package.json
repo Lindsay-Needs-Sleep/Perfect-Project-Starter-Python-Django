@@ -6,7 +6,7 @@
         "build": "vite build",
         "dev": "run-p autobuild host",
         "host": "vite --port 8347 --host",
-        "style-check": "eslint . --config ./eslint.config.vite_src.mjs",
+        "style-check": "eslint . --config ./eslint.config.container.mjs",
         "style-fix": "npm run style-check -- --fix"
     },
     "dependencies": {

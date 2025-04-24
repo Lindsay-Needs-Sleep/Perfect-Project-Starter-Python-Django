@@ -22,4 +22,4 @@ docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/django_
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vite_src --opt type=none --opt o=bind projectname-vite-src
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/public --opt type=none --opt o=bind projectname-public-src
 docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/node_src --opt type=none --opt o=bind projectname-node-src
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/shared_volume --opt type=none --opt o=bind projectname-shared-src-volume
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vol_shared --opt type=none --opt o=bind projectname-shared-src-volume

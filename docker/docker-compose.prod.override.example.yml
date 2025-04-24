@@ -38,4 +38,4 @@ volumes:
         driver_opts:
             type: none
             o: bind
-            device: ../shared_volume
+            device: ../vol_shared

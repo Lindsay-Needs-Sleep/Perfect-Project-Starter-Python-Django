@@ -1,8 +1,8 @@
 {
     "type": "module",
     "scripts": {
-        "style-eslint-check": "eslint . --config ./eslint.config.mjs",
-        "style-eslint-fix": "npm run style-eslint-check -- --fix"
+        "style-check": "eslint . --config ./eslint.config.mjs",
+        "style-fix": "npm run style-check -- --fix"
     },
     "devDependencies": {
         "@eslint/eslintrc": "3.2.0",

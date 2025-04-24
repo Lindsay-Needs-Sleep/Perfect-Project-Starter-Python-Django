@@ -14,7 +14,10 @@ const compat = new FlatCompat({
 export default [
     {
         // https://eslint.org/blog/2022/08/new-config-system-part-2/#glob-based-configs-everywhere
-        ignores: ['**/node_modules/*', '**/public/*', ],
+        ignores: ['**/node_modules/*', '**/public/*',
+            // so that style check from within proj containers don't touch these files which are actually the vol_shared files
+            '**/shared_volume/*'
+        ],
     },
     ...compat.extends('eslint:recommended'),
     {

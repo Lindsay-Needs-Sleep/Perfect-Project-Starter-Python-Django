@@ -6,7 +6,7 @@
         "dev": "nodemon --exec node --inspect=0.0.0.0:9229 run.js",
         "dev-wait": "nodemon --exec node --inspect-brk=0.0.0.0:9229 run.js",
         "prod": "node run.js",
-        "style-check": "eslint . --config ./eslint.config.node_src.mjs",
+        "style-check": "eslint . --config ./eslint.config.container.mjs",
         "style-fix": "npm run style-check -- --fix"
     },
     "devDependencies": {
