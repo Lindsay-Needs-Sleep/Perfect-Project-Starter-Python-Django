@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: ./run.sh <mode>
+# usage: ./run-node.sh <mode>
 # mode: default - run dev server (debugging enabled)
 #       w - run dev server and wait debugger to attach
 #       p - run production server

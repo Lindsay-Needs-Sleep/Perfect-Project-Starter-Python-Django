@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: ./components-start.sh <mode>
+# usage: ./run-vite.sh <mode>
 # mode: default - dev server
 #       p - production build
 #       sf - autofix some styles and style check
