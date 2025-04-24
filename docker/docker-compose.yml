@@ -27,14 +27,14 @@ services:
                 - USER_GID=${CURRENT_HOST_USER_GID}
                 - USERNAME=py
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /projectname/src
+        working_dir: /proj/src
         volumes:
             - type: volume
               source: django-src-volume
-              target: /projectname/src
+              target: /proj/src
             - type: volume
               source: public-src-volume
-              target: /projectname/public
+              target: /proj/public
         ports:
             - "8080:8000"
         depends_on:
@@ -43,29 +43,29 @@ services:
     vite-con:
         image: node:18
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /vite_src
+        working_dir: /proj
         volumes:
             - type: volume
               source: vite-src-volume
-              target: /vite_src
+              target: /proj
             - type: volume
               source: public-src-volume
-              target: /vite_src/public
+              target: /proj/public
             - type: volume
               source: shared-volume
-              target: /vite_src/shared_volume
+              target: /proj/shared_volume
 
     node-con:
         image: node:18
         user: ${CURRENT_HOST_USER_UID}:${CURRENT_HOST_USER_GID}
-        working_dir: /node_src
+        working_dir: /proj
         volumes:
             - type: volume
               source: node-src-volume
-              target: /node_src
+              target: /proj
             - type: volume
               source: shared-volume
-              target: /node_src/shared_volume
+              target: /proj/shared_volume
 
 volumes:
     postgres-data:
