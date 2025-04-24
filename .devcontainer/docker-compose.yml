@@ -1,7 +1,5 @@
-version: '3'
-
 services:
-    projectname-devcontainer:
+    dev-con:
         build:
             context: .
             dockerfile: Dockerfile
@@ -15,19 +13,20 @@ services:
         entrypoint: /usr/local/share/docker-init.sh
         command: sleep infinity
 
+        # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
+        # cap_add:
+        #  - SYS_PTRACE
+        # security_opt:
+        #   - seccomp:unconfined
+
+        # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
+        # (Adding the "ports" property to this file will not forward from a Codespace.)
+
         networks:
-            projectname-network:
+            main-network:
 
-                # Uncomment the next four lines if you will use a ptrace-based debuggers like C++, Go, and Rust.
-                # cap_add:
-                #  - SYS_PTRACE
-                # security_opt:
-                #   - seccomp:unconfined
-
-                # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
-                # (Adding the "ports" property to this file will not forward from a Codespace.)
 
 networks:
-    projectname-network:
-        name: projectname-network
+    main-network:
+        name: ${WORKSPACE_BASENAME}-network
         external: true

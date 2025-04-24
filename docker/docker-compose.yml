@@ -1,6 +1,6 @@
 # requires a valid docker-compose.override.yml to work
 
-name: projectname
+name: ${WORKSPACE_DIR}
 
 services:
 

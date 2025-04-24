@@ -13,5 +13,6 @@ cp -n docker/postgres.example.env docker/postgres.env
 
 # Required to make sure docker runs with the right user
 rm -f docker/.env
-echo "export CURRENT_HOST_USER_UID=$(id -u)" >> docker/.env
-echo "export CURRENT_HOST_USER_GID=$(id -g)" >> docker/.env
+echo "CURRENT_HOST_USER_UID=$(id -u)" >> docker/.env
+echo "CURRENT_HOST_USER_GID=$(id -g)" >> docker/.env
+echo "WORKSPACE_DIR=${PWD##*/}" >> docker/.env

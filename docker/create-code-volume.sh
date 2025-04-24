@@ -18,8 +18,9 @@
 # Docker from Docker docs:
 # https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose#using-bind-mounts-when-working-with-docker-inside-the-container
 # https://code.visualstudio.com/remote/advancedcontainers/use-docker-kubernetes
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vol_public --opt type=none --opt o=bind projectname-public-vol
-docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vol_shared --opt type=none --opt o=bind projectname-shared-vol
+WORKSPACE_DIR=${PWD##*/}
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vol_public --opt type=none --opt o=bind $WORKSPACE_DIR-public-vol
+docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/vol_shared --opt type=none --opt o=bind $WORKSPACE_DIR-shared-vol
 for d in proj_*/ ; do
-    docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/$d --opt type=none --opt o=bind projectname-${d:5:-1}-vol
+    docker volume create --driver local --opt device=$LOCAL_WORKSPACE_FOLDER/$d --opt type=none --opt o=bind $WORKSPACE_DIR-${d:5:-1}-vol
 done

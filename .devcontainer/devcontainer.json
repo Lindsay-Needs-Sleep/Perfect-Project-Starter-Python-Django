@@ -3,11 +3,11 @@
 {
     "name": "Docker from Docker Compose",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "projectname-devcontainer",
+    "service": "dev-con",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     // Use this environment variable if you need to bind mount your local source code into a new container.
     "remoteEnv": {
-        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
     },
     "features": {
         "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
@@ -32,7 +32,7 @@
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
     // run on the host machine before the container is created
-    "initializeCommand": "docker network inspect longprojectname-network || docker network create longprojectname-network",
+    "initializeCommand": "echo WORKSPACE_BASENAME=${localWorkspaceFolderBasename} > .devcontainer/.env && docker network inspect ${localWorkspaceFolderBasename}-network || docker network create ${localWorkspaceFolderBasename}-network",
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "sudo bash .devcontainer/user-installs.sh"
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.

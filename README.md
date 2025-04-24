@@ -2,8 +2,6 @@
 
 ## Adopt this for your project
 
-Replace all instances of `projectname` with `<projectname>` (could collide with other projects)
-
 Run the commands below
 ```bash
 # Create uncommitted files from examples (if they don't already exist)

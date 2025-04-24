@@ -7,7 +7,7 @@ services:
         ports:
             - "5432:5432"
         networks:
-            projectname-network:
+            main-network:
 
 
     django-con:
@@ -21,7 +21,7 @@ services:
             # tests debug port
             - "5679:5679"
         networks:
-            projectname-network:
+            main-network:
                 aliases:
                     - django-container
 
@@ -37,7 +37,7 @@ services:
             # component development port
             - "9229:9229"
         networks:
-            projectname-network:
+            main-network:
                 aliases:
                     - node-container
 
@@ -45,21 +45,21 @@ volumes:
     # Volumes created in /setup-dev.sh
     django-volume:
         external: true
-        name: projectname-django-vol
+        name: ${WORKSPACE_DIR}-django-vol
     vite-volume:
         external: true
-        name: projectname-vite-vol
+        name: ${WORKSPACE_DIR}-vite-vol
     public-volume:
         external: true
-        name: projectname-public-vol
+        name: ${WORKSPACE_DIR}-public-vol
     node-volume:
         external: true
-        name: projectname-node-vol
+        name: ${WORKSPACE_DIR}-node-vol
     shared-volume:
         external: true
-        name: projectname-shared-vol
+        name: ${WORKSPACE_DIR}-shared-vol
 
 networks:
-    projectname-network:
-        name: projectname-network
+    main-network:
+        name: ${WORKSPACE_DIR}-network
         external: true
