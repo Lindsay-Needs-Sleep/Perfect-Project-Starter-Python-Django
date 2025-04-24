@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Tests - Attach Debug",
+            "name": "Django Tests - Attach Debug",
             "type": "python",
             "justMyCode": false,
             "request": "attach",
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "name": "Python - Attach Debug",
+            "name": "Django - Attach Debug",
             "type": "python",
             "justMyCode": false,
             "request": "attach",
@@ -36,7 +36,7 @@
         {
             "type": "node",
             "request": "attach",
-            "name": "Docker: Attach to Node",
+            "name": "Node - Attach Debug",
             "localRoot": "${workspaceFolder}/proj_node",
             "remoteRoot": "/proj",
             "address": "node-container"
