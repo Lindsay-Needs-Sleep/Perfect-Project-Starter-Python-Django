@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# usage: ./backend-start.sh <mode>
+# usage: ./run-django.sh <mode>
 # mode: default - run server (debugging enabled)
 #       w - run server and wait debugger to attach
 #       p - run production server
@@ -8,7 +8,7 @@
 #       tw - test and wait debugger to attach
 #       m - migrate
 #       mm - make migrations
-#       s - autofix some styles and style check
+#       sf - autofix some styles and style check
 #       st - style check and test
 #       i - interactive
 
@@ -17,12 +17,12 @@ EXEC="docker compose exec -it ${CONTAINER}"
 
 case $1 in
     i) COMMAND=(bash);;
-    s) COMMAND=(bash -c "
+    sf) COMMAND=(bash -c "
         python -W ignore::DeprecationWarning /usr/local/python/autopep8.py . &&
         python /usr/local/python/pycodestyle.py
         ");;
     st) COMMAND=(bash -c "
-        echo 'For style errors, run \"./backend-start.sh s\" to autofix' &&
+        echo 'For style errors, run \"./run-django.sh sf\" to autofix' &&
         python /usr/local/python/pycodestyle.py &&
         python manage.py test --keepdb
         ");;
