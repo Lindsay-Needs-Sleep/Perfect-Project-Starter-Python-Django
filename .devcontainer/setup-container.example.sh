@@ -22,3 +22,6 @@ git config core.hooksPath git_hooks
 
 # download node modules for eslinting and stuff
 npm install
+
+# run dev setup automatically
+./setup-dev.sh
