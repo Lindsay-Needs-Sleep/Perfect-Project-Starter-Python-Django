@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Make bash autocomplete work like windows
+TAB:menu-complete
+# Disable bell sound in bash
+set bell-style none
+# add option to /etc/inputrc to enable case-insensitive tab completion for all users
+set completion-ignore-case On

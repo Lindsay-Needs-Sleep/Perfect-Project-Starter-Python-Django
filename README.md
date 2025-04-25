@@ -26,9 +26,11 @@ This option will automaitcally include all development dependencies, extension r
 
 Run:
 ```bash
-cp -n .devcontainer/user-installs.example.sh .devcontainer/user-installs.sh
+cp -n .devcontainer/setup-container.example.sh .devcontainer/setup-container.sh
+cp -n .devcontainer/inputrc.example .devcontainer/inputrc
+cp -n .devcontainer/bash.example.bashrc .devcontainer/bash.bashrc
 ```
-Edit `user-installs.sh` to customize your dev container env.
+Edit the non-example files to customize your dev container environment.
 
 * Note: After you have started the dev container (in a few steps) you will need to refresh the dev container any time you update files in `.devcontainer/*`
     * `ctrl + shift + P` > `Dev Containers: Rebuild Container` for a completely fresh re-application
